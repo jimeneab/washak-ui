@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../Components/Button/Button";
 import { Activity } from 'react-feather'
+import { Link } from "react-router-dom";
 import './Login.css'
 
 
@@ -30,7 +31,7 @@ const Login = () => {
             </div>
             <div className="login-footer">
                 <Button>Iniciar sesion!</Button>
-                <p>No tienes una cuenta? <a href="/"> Registrate </a></p>
+                <p>No tienes una cuenta? <Link to="/home">Registrate</Link></p>
             </div>
         </section>
     )
