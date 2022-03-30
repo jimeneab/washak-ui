@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../Components/Button/Button";
 import { User, Lock } from 'react-feather'
+import { Link } from "react-router-dom";
 import './Login.css'
 
 
@@ -25,12 +26,12 @@ const Login = () => {
                         <Lock color="#666666" width={'20px'} className="mx-1" />
                         <input type={'password'} placeholder='contrasena' className="mx-1" />
                     </div>
-                    <a href='' >olvidaste tu contrasena?</a>
+                    <a href='/' >olvidaste tu contrasena?</a>
                 </form>
             </div>
             <div className="login-footer">
                 <Button width={'medium'} color="primary">Iniciar sesion!</Button>
-                <p>No tienes una cuenta? <a href="/"> Registrate </a></p>
+                <p>No tienes una cuenta? <Link to="/home">Registrate</Link></p>
             </div>
         </section>
     )
