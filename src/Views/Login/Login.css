@@ -26,21 +26,26 @@
 
 
 .login-body{
-    height: 55%;
+    height: 53%;
     text-align: right;
 }
 
+.login-body a{
+    margin: 10px;
+}
+
 .login-input{
-    border: 1px solid #666666;
     width: 80%;
     margin: 30px auto 5px auto;
     border-radius: 5px;
     text-align: left;
+    background-color: white;
+    padding: 5px 0;
 }
 
 .login-input input{
     
-    width: 90%;
+    width: 85%;
 }
 
 .login-body input{
@@ -48,5 +53,5 @@
 }
 
 .login-footer{
-    height: 10%;
+    height: 12%;
 }

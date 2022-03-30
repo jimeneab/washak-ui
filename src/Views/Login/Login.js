@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Components/Button/Button";
-import { Activity } from 'react-feather'
+import { User, Lock } from 'react-feather'
 import './Login.css'
 
 
@@ -18,18 +18,18 @@ const Login = () => {
             <div className="login-body">
                 <form>
                     <div className="login-input">
-                        <Activity />
-                        <input />
+                        <User color="#666666" width={'20px'} className="mx-1"/>
+                        <input type={'email'} placeholder='usuario' className="mx-1"/>
                     </div>
                     <div className="login-input">
-                        <Activity />
-                        <input />
+                        <Lock color="#666666" width={'20px'} className="mx-1" />
+                        <input type={'password'} placeholder='contrasena' className="mx-1" />
                     </div>
-                    <p>olvidaste tu contrasena?</p>
+                    <a href='' >olvidaste tu contrasena?</a>
                 </form>
             </div>
             <div className="login-footer">
-                <Button>Iniciar sesion!</Button>
+                <Button width={'medium'} color="primary">Iniciar sesion!</Button>
                 <p>No tienes una cuenta? <a href="/"> Registrate </a></p>
             </div>
         </section>
