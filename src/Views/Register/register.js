@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "../../Components/Button/Button";
-import '../Home/home.css'
+import './register.css'
 import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
 
-const Home = () => {
+const Register = () => {
     return (
         <section className="register">
             <div className="register-header">
@@ -44,4 +44,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Register

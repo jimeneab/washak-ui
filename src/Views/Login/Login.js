@@ -31,7 +31,7 @@ const Login = () => {
             </div>
             <div className="login-footer">
                 <Button width={'medium'} color="primary">Iniciar sesion!</Button>
-                <p>No tienes una cuenta? <Link to="/home">Registrate</Link></p>
+                <p>No tienes una cuenta? <Link to="/registro">Registrate</Link></p>
             </div>
         </section>
     )
