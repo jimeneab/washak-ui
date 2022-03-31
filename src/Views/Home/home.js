@@ -1,5 +1,6 @@
 import React from "react";
 import '../Home/home.css'
+import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
 
