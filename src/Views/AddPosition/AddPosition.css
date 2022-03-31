@@ -1,0 +1,61 @@
+.add-position{
+    height: 100vh;
+    background: #f4eafa;
+}
+
+.add-position-header{
+   height: 15%;
+}
+
+#add-positon-navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+ }
+
+.add-position-header img{
+   width: 10%;
+ }
+
+
+.add-position-header h1{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+
+.add-position-body{
+    height: 73%;
+}
+
+.add-position-input{
+    width: 80%;
+    margin: 30px auto 5px auto;
+    border-radius: 5px;
+    text-align: left;
+    background-color: white;
+    padding: 5px 0;
+}
+
+.add-position-input input{
+    
+    width: 85%;
+}
+
+.add-position-body input{
+    border: none;
+}
+
+.add-position-footer{
+    height: 12%;
+}
+
+.map-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
