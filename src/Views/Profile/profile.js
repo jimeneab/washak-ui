@@ -15,43 +15,42 @@ const Profile = () => {
                 <div>
                     <img src="https://picsum.photos/seed/picsum/200/200" className="rounded-circle" alt="" />
                 </div>
+                <h1>Completa tu Perfil</h1>
             </div>
-            <h1>Completa tu Perfil</h1>
-            <div>
+            <div className="profile-body mb-3">
                 <form>
-                    <div>
+                    <div className="profile-input">
                         <User color="#666666" width={'20px'} className="mx-1" />
                         <input type="text" placeholder="Nombre" className="mx-1" />
                     </div>
-                    <div>
+                    <div className="profile-input">
                         <User color="#666666" width={'20px'} className="mx-1" />
                         <input type="text" placeholder="Apellido" className="mx-1" />
                     </div>
-                    <div>
+                    <div className="profile-input">
                         <Mail color="#666666" width={'20px'} className="mx-1" />
                         <input type="text" placeholder="Correo" className="mx-1" />
                     </div>
-                    <div>
+                    <div className="profile-input">
                         <Phone color="#666666" width={'20px'} className="mx-1" />
                         <input type="tel" placeholder="Telefono" className="mx-1" />
                     </div>
                 </form>
             </div>
-            <div>
-                <div>
-                    <button>< AiOutlineCar /></button>
+            <div className="col-12 d-flex ">
+                <div className="col-6">
+                    <button >< AiOutlineCar /></button>
                     <h3>Añade un vehículo</h3>
                 </div>
-                <div>
-                    <button><MdLocationPin /></button>
+                <div className="col-6">
+                    <button ><MdLocationPin /></button>
                     <h3>Añade una ubicación</h3>
                 </div>
             </div>
-            <div>
+            <div className="profile-footer">
                 <Button width={'medium'} color="primary"> Guardar </Button>
                 <Link to="/"><p>Completar mi perfil mas tarde</p></Link>
             </div>
-
         </section>
     )
 }
