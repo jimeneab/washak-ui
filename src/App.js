@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import Home from "./Views/Home/home"
+import Register from "./Views/Register/register"
 import Other from "./Views/Other/other"
 import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
@@ -20,7 +20,7 @@ function App() {
         <Route path='/perfil' element={<Profile />} />
         <Route path='/addPosition' element={<AddPosition />} />
       </Routes>
-      <Link to='/home'>
+      <Link to='/login'>
         <button>home</button>
       </Link>
       <Link to='/'>
@@ -37,6 +37,9 @@ function App() {
       </Link>
       <Link to='/addPosition'>
         <button>Agregar ubicacion</button>
+      </Link>
+      <Link to='/perfil'>
+        <button>Perfil</button>
       </Link>
     </div>
   );

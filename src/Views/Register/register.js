@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
 
 const Register = () => {
+
+
+    
+
+
     return (
         <section className="register">
             <div className="register-header">
