@@ -1,13 +1,27 @@
 import React from "react";
 import Button from "../../Components/Button/Button";
 import './register.css'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
+import api from "../../lib/api";
+
 
 const Register = () => {
 
 
-    
+    const [newUser, setNewUser] = useState({})
+
+    const formHandlerUser = event => {
+        const name = event.target.name
+        const value = event.target.value
+        setNewUser({...newUser, [name]:value})
+    }
+
+    const saveHandlerUser = async () => {
+        const result = await api.saveUser(newUser)
+        console.log(result)
+    }
 
 
     return (
@@ -22,24 +36,24 @@ const Register = () => {
                 <form>
                     <div className="register-input">
                         <User color="#666666" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Usuario" className="mx-1" />
+                        <input type="text" placeholder="Usuario" className="mx-1"  onChange={formHandlerUser}/>
                     </div>
                     <div className="register-input">
                         <Mail color="#666666" width={'20px'} className="mx-1" />
-                        <input type="email" placeholder="Correo" className="mx-1" />
-                    </div>
+                        <input type="email" placeholder="Correo" className="mx-1" onChange={formHandlerUser} />
+                     </div>
                     <div className="register-input">
                         <Lock color="#666666" width={'20px'} className="mx-1" />
-                        <input type="password" placeholder="Contraseña" className="mx-1" />
-                    </div>
+                        <input type="password" placeholder="Contraseña" className="mx-1"  onChange={formHandlerUser}/>
+                     </div>
                     <div className="register-input">
                         <Lock color="#666666" width={'20px'} className="mx-1" />
-                        <input type="password" placeholder="Confirmar Contraseña" className="mx-1" />
-                    </div>
+                        <input type="password" placeholder="Confirmar Contraseña" className="mx-1"  onChange={formHandlerUser}/>
+                     </div>
                 </form>
             </div>
             <div>
-                <Button width={'medium'} color="secondary">Registrate</Button>
+                <Button width={'medium'} color="secondary" onClick={saveHandlerUser}>Registrate</Button>
                 <p>Ya tienes cuenta? <Link to="/">Inicia Sesión</Link></p>
             </div>
 
