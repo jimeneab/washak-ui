@@ -1,15 +1,25 @@
 import './App.css';
+import React, {useState} from 'react';
 import { Routes, Route, Link } from "react-router-dom";
+import { Button } from 'reactstrap';
 import Home from "./Views/Home/home"
 import Other from "./Views/Other/other"
 import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
 import Login from './Views/Login/Login';
 import AddPosition from './Views/AddPosition/AddPosition'
+import ModalComponent from './Components/Modal/Modal';
 
 function App() {
+  const [isShowModal, setIsShowModal] = useState(false)
+    
+  const toggleModal = () => {
+      setIsShowModal(!isShowModal)
+  }
+
   return (
     <div className="App">
+      <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
@@ -36,6 +46,7 @@ function App() {
       <Link to='/addPosition'>
         <button>Agregar ubicacion</button>
       </Link>
+      <Button onClick={toggleModal}> Abrir modal </Button>
     </div>
   );
 }

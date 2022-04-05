@@ -1,0 +1,41 @@
+.modal{
+    position: fixed;
+    top: 60%;
+    border-radius: 40px;
+}
+
+.modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    border-radius: 40px;
+}
+
+.modal-header{
+    border: 0;
+    border-radius: 40px;
+}
+
+.modal-header button{
+    background-color: white;
+    border: none;
+    color: #666666;
+}
+
+.modal-footer{
+    border: 0;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-cancel{
+    background-color: #FF9933;
+    border: none;
+}
+
+.button-confirm{
+    background-color: #9933CC;
+    border: none;
+}
