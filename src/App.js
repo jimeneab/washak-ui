@@ -8,6 +8,7 @@ import Login from './Views/Login/Login';
 import Profile from './Views/Profile/profile';
 import AddPosition from './Views/AddPosition/AddPosition'
 
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
         <Route path='/registerCar' element={<RegisterCar />} />
         <Route path='/perfil' element={<Profile />} />
         <Route path='/addPosition' element={<AddPosition />} />
+        <Route path='/registro' element={<Register />} />
       </Routes>
       <Link to='/login'>
         <button>home</button>
@@ -40,6 +42,9 @@ function App() {
       </Link>
       <Link to='/perfil'>
         <button>Perfil</button>
+      </Link>
+      <Link to='/registro'>
+        <button>Registro</button>
       </Link>
     </div>
   );

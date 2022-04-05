@@ -16,6 +16,7 @@ const Register = () => {
         const name = event.target.name
         const value = event.target.value
         setNewUser({...newUser, [name]:value})
+        console.log(newUser)
     }
 
     const saveHandlerUser = async () => {
@@ -36,19 +37,19 @@ const Register = () => {
                 <form>
                     <div className="register-input">
                         <User color="#666666" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Usuario" className="mx-1"  onChange={formHandlerUser}/>
+                        <input type="text" placeholder="Usuario" name="User" className="mx-1" onChange={formHandlerUser}/>
+                    </div>
+                    <div className="profile-input">
+                        <User color="#666666" width={'20px'} className="mx-1" />
+                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" />
                     </div>
                     <div className="register-input">
                         <Mail color="#666666" width={'20px'} className="mx-1" />
-                        <input type="email" placeholder="Correo" className="mx-1" onChange={formHandlerUser} />
+                        <input type="email" placeholder="Correo" name="Mail" className="mx-1" onChange={formHandlerUser} />
                      </div>
                     <div className="register-input">
                         <Lock color="#666666" width={'20px'} className="mx-1" />
-                        <input type="password" placeholder="Contraseña" className="mx-1"  onChange={formHandlerUser}/>
-                     </div>
-                    <div className="register-input">
-                        <Lock color="#666666" width={'20px'} className="mx-1" />
-                        <input type="password" placeholder="Confirmar Contraseña" className="mx-1"  onChange={formHandlerUser}/>
+                        <input type="password" placeholder="Contraseña" name="Password" className="mx-1" onChange={formHandlerUser}/>
                      </div>
                 </form>
             </div>
