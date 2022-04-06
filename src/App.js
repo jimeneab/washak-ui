@@ -6,6 +6,7 @@ import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
 import Login from './Views/Login/Login';
 import Profile from './Views/Profile/profile';
+import PickDate from './Views/PickDate';
 import AddPosition from './Views/AddPosition/AddPosition'
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/perfil' element={<Profile />} />
         <Route path='/addPosition' element={<AddPosition />} />
         <Route path='/registro' element={<Register />} />
+        <Route path='/fecha' element={<PickDate />} />
       </Routes>
       <Link to='/login'>
         <button>home</button>
@@ -45,6 +47,9 @@ function App() {
       </Link>
       <Link to='/registro'>
         <button>Registro</button>
+      </Link>
+      <Link to='/fecha'>
+        <button>Fecha</button>
       </Link>
     </div>
   );

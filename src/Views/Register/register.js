@@ -41,7 +41,7 @@ const Register = () => {
                     </div>
                     <div className="profile-input">
                         <User color="#666666" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" />
+                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" onChange={formHandlerUser}/>
                     </div>
                     <div className="register-input">
                         <Mail color="#666666" width={'20px'} className="mx-1" />

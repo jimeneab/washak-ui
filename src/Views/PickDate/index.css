@@ -1,0 +1,25 @@
+.date{
+    height: 100vh;
+    background: #f4eafa;
+}
+
+#add-positon-navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+ }
+
+ .date-body{
+    height: 48%;
+    text-align:center;
+    margin-top: 3rem;
+    margin-left: 2rem;
+}
+
+.date-body h2{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px;
+}
