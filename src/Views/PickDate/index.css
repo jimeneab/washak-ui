@@ -10,16 +10,18 @@
  }
 
  .date-body{
-    height: 48%;
+    height: 70%;
     text-align:center;
     margin-top: 3rem;
     margin-left: 2rem;
 }
 
-.date-body h2{
+.date-body h1{
     color: #003366;
     font-family: 'Ubuntu';
     font-style: italic;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
 }

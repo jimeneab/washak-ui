@@ -1,0 +1,27 @@
+.register{
+    height: 100vh;
+    background: #f4eafa;
+}
+
+.principal-text{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 70px;
+    font-size: 30px;
+    margin: 3rem;
+}
+
+.secondary-text{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 70px;
+    font-size: 25px;
+    margin-bottom: 3rem;
+}
+
+.registerCar-footer{
+    margin-top: 13rem;
+}
+

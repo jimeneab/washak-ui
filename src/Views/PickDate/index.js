@@ -1,16 +1,16 @@
+import { ArrowLeft } from 'react-feather'
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-import { ArrowLeft } from 'react-feather'
-import './index.css'
-import "react-datepicker/dist/react-datepicker.css";
 import Button from '../../Components/Button/Button';
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
+import './index.css'
+import "react-datepicker/dist/react-datepicker.css";
 
 const PickDate = () => {
 
     const [startDate, setStartDate] = useState(
-        setHours(setMinutes(new Date(), 30), 17)
+        setHours(setMinutes(new Date(), 0), 8)
       );
 
 
@@ -31,18 +31,15 @@ const PickDate = () => {
                 </div>
             </div>
             <div className='date-body'>
-                <h2>Selecciona una fecha y hora</h2>
+                <h1>Selecciona una fecha y hora</h1>
                 <DatePicker
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
                     showTimeSelect
-                    minTime={setHours(setMinutes(new Date(), 0), 10)}
-                    maxTime={setHours(setMinutes(new Date(), 0), 20)}
+                    minTime={setHours(setMinutes(new Date(), 0), 8)}
+                    maxTime={setHours(setMinutes(new Date(), 0), 19)}
                     dateFormat="MMMM d, yyyy h:mm aa"
                 />
-            </div>
-            <div>
-
             </div>
             <div>
                 <Button width={'medium'} color="primary" >Agendar</Button>
