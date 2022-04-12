@@ -25,6 +25,7 @@ function App() {
       <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/registro' element={<Register />} />
         <Route path='/other' element={<Other />} />
         <Route path='/notFound' element={<NotFound />} />
