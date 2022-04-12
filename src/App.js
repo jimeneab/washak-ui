@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import Register from "./Views/Register/register"
-import Other from "./Views/Other/other"
+import Home from "./Views/Home/home"
 import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
 import Login from './Views/Login/Login';
@@ -24,10 +24,9 @@ function App() {
     <div className="App">
       <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registro' element={<Register />} />
-        <Route path='/other' element={<Other />} />
         <Route path='/notFound' element={<NotFound />} />
         <Route path='/registerCar' element={<RegisterCar />} />
         <Route path='/perfil' element={<Profile />} />
@@ -35,14 +34,12 @@ function App() {
         <Route path='/registro' element={<Register />} />
         <Route path='/fecha' element={<PickDate />} />
       </Routes>
-      <Link to='/login'>
-        <button>home</button>
-      </Link>
+      
       <Link to='/'>
-        <button>login</button>
+        <button>Home</button>
       </Link>
-      <Link to='/other'>
-        <button>other</button>
+      <Link to='/login'>
+        <button>login</button>
       </Link>
       <Link to='/notFound'>
         <button>notFound</button>
