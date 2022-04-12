@@ -13,14 +13,7 @@ const PickDate = () => {
         setHours(setMinutes(new Date(), 0), 8)
       );
 
-
-    // const newDate = event => {
-
-    // }
-
-    // const hourAndDate = () => {
-
-    // }
+   
 
     return (
         <section className='date'>

@@ -1,0 +1,45 @@
+.notFound{
+    height: 100vh;
+    background: #f4eafa;
+    display: flex;
+    flex-direction: column;
+}
+
+.notFound h1{
+    margin-top: 2rem;
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.notFound h2{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.notFound p{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+.header-img{
+    height: auto;
+    max-width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}
+
+.notFound-link{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
