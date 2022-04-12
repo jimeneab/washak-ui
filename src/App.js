@@ -11,6 +11,7 @@ import Profile from './Views/Profile/profile';
 import PickDate from './Views/PickDate';
 import AddPosition from './Views/AddPosition/AddPosition'
 import ModalComponent from './Components/Modal/Modal';
+import MyVehicles from './Views/MyVehicles/MyVehicles';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/addPosition' element={<AddPosition />} />
         <Route path='/registro' element={<Register />} />
         <Route path='/fecha' element={<PickDate />} />
+        <Route path='/myVehicles' element={<MyVehicles />} />
       </Routes>
       
       <Link to='/'>
@@ -59,6 +61,9 @@ function App() {
       </Link>
       <Link to='/fecha'>
         <button>Fecha</button>
+      </Link>
+      <Link to='/myVehicles'>
+        <button>Mis vehículos</button>
       </Link>
     </div>
   );
