@@ -1,0 +1,65 @@
+.card-vehicle {
+    background-color: white;
+    border-radius: 1.5rem;
+    border: 2px solid black;
+}
+
+.card-vehicle-img {
+    width: 60%;
+}
+
+.card-info-brand, .card-info-color {
+    width: 90%;
+    text-align: left;
+}
+
+.card-dropdown {
+    background-color: transparent;
+    border: transparent;
+    width: 30px;
+    position: relative;
+}
+
+.card-dropdown:focus {
+    background-color: transparent;
+    border: transparent;
+    box-shadow: none;
+}
+
+.card-dropdown:hover {
+    background-color: transparent;
+    border: transparent;
+    box-shadow: none;
+}
+
+.card-dropdown:active {
+    background-color: transparent; 
+    border: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
+/* .card-dmenu::before{
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent white transparent;
+}
+
+.card-dmenu::after{
+    content: '';
+    position: absolute;
+    top: -11px;
+    right: -12px;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 11px 11px 11px;
+    border-color: transparent transparent gray transparent;
+} */

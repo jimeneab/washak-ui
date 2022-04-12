@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    background-color: red;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.container-profile {
+    position: relative;
+}
+
+.more {
+    padding: 3px;
+    background-color: blue;
+    border-radius: 1.5rem;
+    position: relative;
+    right: 20px;
+    top: 20px;
+}
+
+.user-pic {
+    height: 60px;
+}
+
+.title {
+    color: #003366;
+    font-family: 'Ubuntu', italic;
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 30px;
+}
