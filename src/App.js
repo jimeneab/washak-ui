@@ -12,6 +12,7 @@ import PickDate from './Views/PickDate';
 import AddPosition from './Views/AddPosition/AddPosition'
 import ModalComponent from './Components/Modal/Modal';
 import MyVehicles from './Views/MyVehicles/MyVehicles';
+import Landing from './Views/Landing/Landing';
 
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
     <div className="App">
       <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
       <Routes>
+       
         <Route path='/' element={<Home />} />
+        <Route path='/landing' element={<Landing />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registro' element={<Register />} />
         <Route path='/notFound' element={<NotFound />} />
