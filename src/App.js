@@ -12,11 +12,8 @@ import PickDate from './Views/PickDate';
 import AddPosition from './Views/AddPosition/AddPosition'
 import ModalComponent from './Components/Modal/Modal';
 import MyVehicles from './Views/MyVehicles/MyVehicles';
-<<<<<<< HEAD
 import DateAndPay from './Views/DateAndPay/dateandpay'
-=======
 import Landing from './Views/Landing/Landing';
->>>>>>> 07e602d2da8551b107166ed896d1039fd704bacf
 
 
 function App() {
