@@ -1,0 +1,51 @@
+.body-dateandpay{
+    height: 100vh;
+    background: #f4eafa;
+
+}
+
+
+
+.text-principal{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    display:flex;
+    align-items: flex-start;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.text-secondary{
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 3rem;
+}
+
+.text-service{
+    color: #003366;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.pay-method{
+    display: flex;
+    align-items: flex-start;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+    
+}
+
+.button-date{
+    margin-top: 10rem;
+}

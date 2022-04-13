@@ -12,6 +12,7 @@ import PickDate from './Views/PickDate';
 import AddPosition from './Views/AddPosition/AddPosition'
 import ModalComponent from './Components/Modal/Modal';
 import MyVehicles from './Views/MyVehicles/MyVehicles';
+import DateAndPay from './Views/DateAndPay/dateandpay'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/registro' element={<Register />} />
         <Route path='/fecha' element={<PickDate />} />
         <Route path='/myVehicles' element={<MyVehicles />} />
+        <Route path='/dateAndPay' element={<DateAndPay />} />
       </Routes>
       
       <Link to='/'>
@@ -64,6 +66,9 @@ function App() {
       </Link>
       <Link to='/myVehicles'>
         <button>Mis vehículos</button>
+      </Link>
+      <Link to='/dateAndPay'>
+        <button>Cita-Pago</button>
       </Link>
     </div>
   );
