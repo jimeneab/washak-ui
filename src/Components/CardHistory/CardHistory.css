@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-history {
+    background-color: #f3f3f3;
+    border-radius: 1.5rem;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.card-history-img {
+    width:40%;
+}
+.card-history-info {
+    width:65%;
+}
+.history-location p, .history-date p {
+    margin-bottom: 0;
+}
+.history-brand, .history-location, .history-date {
+    font-family: Oxygen;
+    font-weight: 700;
+    font-size: 16px;
+    color: #003366;
+    width: 90%;
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 0px;
+}
+
+.calificar {
+    text-align: right;
+    width: 100%;
+}

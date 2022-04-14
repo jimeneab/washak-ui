@@ -14,6 +14,7 @@ import ModalComponent from './Components/Modal/Modal';
 import MyVehicles from './Views/MyVehicles/MyVehicles';
 import DateAndPay from './Views/DateAndPay/dateandpay'
 import Landing from './Views/Landing/Landing';
+import Historial from './Views/Historial/Historial'
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path='/fecha' element={<PickDate />} />
         <Route path='/myVehicles' element={<MyVehicles />} />
         <Route path='/dateAndPay' element={<DateAndPay />} />
+        <Route path='/serviceHistory' element={<Historial />} />
       </Routes>
       
       <Link to='/'>
@@ -72,6 +74,9 @@ function App() {
       </Link>
       <Link to='/dateAndPay'>
         <button>Cita-Pago</button>
+      </Link>
+      <Link to='/serviceHistory'>
+        <button>Historial de servicios</button>
       </Link>
     </div>
   );
