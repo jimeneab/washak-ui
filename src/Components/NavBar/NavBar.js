@@ -5,7 +5,7 @@ import { ArrowLeft, MoreVertical } from "react-feather";
 function NavBar() {
 return (
 <nav>
-  <ArrowLeft className="ms-3" />
+  <ArrowLeft className="ms-3" size={30} color="#003366"/>
   <div className='container-profile'>
     <img
       src='https://picsum.photos/seed/picsum/200/200'

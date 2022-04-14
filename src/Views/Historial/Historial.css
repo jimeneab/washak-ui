@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-principal{
+    background-image: url(../../Images/Background.png);
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+.title {
+    color: #003366;
+    font-family: 'Ubuntu', italic;
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 30px;
+}
