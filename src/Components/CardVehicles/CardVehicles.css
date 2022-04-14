@@ -1,7 +1,8 @@
 .card-vehicle {
-    background-color: white;
+    background-color: #f3f3f3;
     border-radius: 1.5rem;
-    border: 2px solid black;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    margin-bottom: 30px;
 }
 
 .card-vehicle-img {
@@ -9,6 +10,10 @@
 }
 
 .card-info-brand, .card-info-color {
+    font-family: Oxygen;
+    font-weight: 700;
+    font-size: 16px;
+    color: #003366;
     width: 90%;
     text-align: left;
 }
@@ -39,6 +44,14 @@
     box-shadow: none;
 }
 
+.card-dmenu{
+    background-color: #f3f3f3;
+}
+.card-ditem {
+    color:#003366;
+    font-family: Oxygen;
+    font-size: 16px;
+}
 /* .card-dmenu::before{
     content: '';
     position: absolute;
