@@ -15,6 +15,8 @@ import MyVehicles from './Views/MyVehicles/MyVehicles';
 import DateAndPay from './Views/DateAndPay/dateandpay'
 import Landing from './Views/Landing/Landing';
 import Historial from './Views/Historial/Historial'
+import Progress from './Views/Progress/Progress';
+import RateService from './Views/RateService/RateService';
 
 
 function App() {
@@ -42,8 +44,13 @@ function App() {
         <Route path='/myVehicles' element={<MyVehicles />} />
         <Route path='/dateAndPay' element={<DateAndPay />} />
         <Route path='/serviceHistory' element={<Historial />} />
+        <Route path='/workInProgress' element={<Progress />} />
+        <Route path='/rateService' element={<RateService />} />
       </Routes>
       
+      <Link to='/landing'>
+        <button>Landing</button>
+      </Link>
       <Link to='/'>
         <button>Home</button>
       </Link>
@@ -77,6 +84,12 @@ function App() {
       </Link>
       <Link to='/serviceHistory'>
         <button>Historial de servicios</button>
+      </Link>
+      <Link to='/workInProgress'>
+        <button>En proceso</button>
+      </Link>
+      <Link to='/rateService'>
+        <button>Calificar</button>
       </Link>
     </div>
   );

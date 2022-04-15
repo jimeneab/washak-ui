@@ -5,9 +5,9 @@ import NavBar from "../../Components/NavBar/NavBar";
 
 function MyVehicles() {
   return (
-    <div className='container-principal'>
+    <div className='bgimg-1'>
       <NavBar />
-      <section className='ms-3 me-3'>
+      <section className='mx-4'>
         <h1 className='title'>Mis Vehículos</h1>
         <CardVehicles 
           brand='VW'
