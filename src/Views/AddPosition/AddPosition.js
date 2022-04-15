@@ -3,6 +3,7 @@ import Button from "../../Components/Button/Button";
 import { Search, ArrowLeft } from 'react-feather'
 import MapView from "../../Components/MapView/Mapview";
 import './AddPosition.css'
+import api from '../../lib/api'
 
 
 
@@ -14,6 +15,11 @@ const AddPosition = () => {
         const direction = event.target.value
         console.log(address)
         setAddress({...address, direction})
+    }
+
+    const saveHandlerAddress = async () => {
+        const result = await api.saveAddress(address)
+        console.log(result)
     }
 
     return(
@@ -37,7 +43,7 @@ const AddPosition = () => {
                 </div>
             </div>
             <div className="add-position-footer">
-                <Button width={'medium'} color="primary">Guardar</Button>
+                <Button width={'medium'} color="primary" onClick={saveHandlerAddress}>Guardar</Button>
             </div>
         </section>
     )

@@ -6,6 +6,7 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import './index.css'
 import "react-datepicker/dist/react-datepicker.css";
+import api from '../../lib/api';
 
 const PickDate = () => {
 
@@ -13,7 +14,10 @@ const PickDate = () => {
         setHours(setMinutes(new Date(), 0), 8)
       );
 
-   
+    const saveHandlerDate = async () => {
+        const result = await api.saveDate(startDate)
+        console.log(result)
+    }
 
     return (
         <section className='date'>
@@ -35,7 +39,7 @@ const PickDate = () => {
                 />
             </div>
             <div>
-                <Button width={'medium'} color="primary" >Agendar</Button>
+                <Button width={'medium'} color="primary" onClick={saveHandlerDate}>Agendar</Button>
             </div>
 
         </section>

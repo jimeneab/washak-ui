@@ -1,4 +1,5 @@
 import React from "react";
+import api from "../../lib/api";
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -17,10 +18,12 @@ const Profile = () => {
         const name = event.target.name
         const value = event.target.value
         setProfile({...profile, [name]:value})
+        console.log(profile)
     }
 
-    const saveHandlerProfile = () => {
-        
+    const saveHandlerProfile = async () => {
+        const result = await api.saveUser(profile)
+        console.log(result)
     }
 
     return (
