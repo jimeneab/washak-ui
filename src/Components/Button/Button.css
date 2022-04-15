@@ -5,6 +5,10 @@
     border: 1px solid #9933CC;
     padding: 5px;
     margin-bottom: 5px;
+    font-family: Oxygen;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
 .secondary{
@@ -14,6 +18,10 @@
     border: 1px solid #FF9933;
     padding: 5px;
     margin-bottom: 5px;
+    font-family: Oxygen;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 2px 5px 10px 0.5px rgba(255, 153, 51, 30%);
 }
 
 .small{

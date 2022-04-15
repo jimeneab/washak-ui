@@ -2,6 +2,7 @@ import React from "react"
 import jeep from "../../Images/jeep-min.svg"
 import "./CardHistory.css"
 import { MapPin, Calendar } from "react-feather"
+
 function CardHistory({ service, brand, model, location, date, time }) {
   return (
     <div className="card-history d-flex align-items-center">
@@ -17,7 +18,7 @@ function CardHistory({ service, brand, model, location, date, time }) {
           <Calendar color="#003366" width="20px"/><p className="ms-2">{date} {time}</p> 
         </div>
         <p className="calificar mt-2 mb-0">
-          <a href="./CardHistory.js">Calificar</a>
+          <a href="./rateService">Calificar</a>
         </p>
       </div>
     </div>
