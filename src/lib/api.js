@@ -50,5 +50,15 @@ export default {
       body: JSON.stringify(dateData)
     })
     return await response.json()
+  },
+  saveRateService: async rateData => {
+    let response = await fetch(`${BASE_URL}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(rateData)
+    })
+    return await response.json()
   }
 }

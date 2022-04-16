@@ -3,6 +3,7 @@ import NavBar from "../../Components/NavBar/NavBar"
 import Button from "../../Components/Button/Button"
 import "./RateService.css"
 import { Star } from "react-feather"
+import api from "../../lib/api"
 
 const colors = {
   yellow: "#EFD65B",
@@ -14,12 +15,24 @@ function RateService({ service, idService}){
   const stars = Array(5).fill(0)
   const [currentValue, setCurrentValue] = useState(0)
   const [hoverValue, setHoverValue] = useState(undefined)
+  const [inputRateObj, setInputRateObj] = useState({})
 
   const handleClick = value => setCurrentValue(value)
 
   const handleHover = value => setHoverValue(value)
 
   const handleNoHover = value => setHoverValue(undefined)
+
+  const inputRate = event => {
+    const comment = event.target.value
+    const range = currentValue
+    setInputRateObj({comment,range})
+  }
+
+  const buttonRate = async () => {
+    const result = await api.saveRateService(inputRateObj)
+    console.log(result)
+  }
   
   return(
     <div className="bgimg-1">
@@ -52,8 +65,9 @@ function RateService({ service, idService}){
               </div>
             </div>
         </div>
-        <textarea id="rate-comments" rows="5" placeholder="Déjanos tus comentarios"/>
-        <Button color="primary" width="large">Enviar</Button>
+        <textarea id="rate-comments" rows="5" placeholder="Déjanos tus comentarios" onChange={inputRate}/>
+        <Button color="primary" width="large" onClick={buttonRate}>Enviar</Button>
+        <button color={'primary'} width={'large'} onClick={buttonRate}>Enviar</button>
       </section>
     </div>
   )
