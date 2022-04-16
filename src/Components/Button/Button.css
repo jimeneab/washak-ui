@@ -9,6 +9,7 @@
     font-weight: 700;
     font-size: 16px;
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    cursor: pointer;
 }
 
 .secondary{
@@ -22,6 +23,7 @@
     font-weight: 700;
     font-size: 16px;
     box-shadow: 2px 5px 10px 0.5px rgba(255, 153, 51, 30%);
+    cursor: pointer;
 }
 
 .small{

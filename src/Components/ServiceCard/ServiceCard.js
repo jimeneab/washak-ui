@@ -18,7 +18,7 @@ function ServiceCard(props){
     premium: "ultrawide",
   }  
 
-  const setWidth = (isPremium) => isPremium == "premium" ? widthConfig[isPremium] : widthConfig[isPremium] 
+  const setWidth = (isPremium) => isPremium === "premium" ? widthConfig[isPremium] : widthConfig[isPremium] 
 
   return(
     <div className={`card-service d-flex align-items-center me-4 ${setWidth(image)}`}>
