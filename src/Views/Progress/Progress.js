@@ -2,7 +2,7 @@ import React from "react"
 import NavBar from "../../Components/NavBar/NavBar"
 import Button from "../../Components/Button/Button"
 import "./Progress.css"
-import workInProgress from "../../Images/work-in-progress-min.svg"
+import express from "../../Images/express.svg"
 import { MapPin, Calendar } from "react-feather"
 
 function Progress({ service, brand, location, date, time }) {
@@ -12,7 +12,7 @@ function Progress({ service, brand, location, date, time }) {
       <section className='mx-4'>
         <h1 className='title'>En proceso</h1>
         <div className="card-progress d-flex flex-column justify-content-center align-items-center">
-          <img src={workInProgress} alt="Imagen coche limpio" className="card-progress-img" />
+          <img src={express} alt="Imagen coche limpio" className="card-progress-img" />
           <div className="step-progress">
             {/* step progress bar */}
           </div>

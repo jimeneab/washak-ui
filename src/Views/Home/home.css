@@ -1,0 +1,7 @@
+.slider-container {
+    overflow-x: hidden;
+}
+
+.slider-vehicles {
+    cursor:grab;
+}
