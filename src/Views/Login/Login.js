@@ -4,6 +4,7 @@ import Button from "../../Components/Button/Button";
 import { User, Lock } from 'react-feather'
 import { Link, useNavigate } from "react-router-dom";
 import './Login.css'
+import logo from "../../Images/logo.svg"
 
 
 
@@ -35,30 +36,29 @@ const handlePasswordInput = (e) => {
     setLoginData({...loginData, 'password': value})
 }
     return(
-        <section className="login">
+        <section className="login bgimg-2 px-4">
             <div className="login-header">
                 <div>
-                    <img src="https://picsum.photos/seed/picsum/200/200" className="rounded-circle" alt="Cinque Terre" />
+                    <img src={logo} className="logo" alt="washak logo" />
                 </div>
-                <h1>Hey!</h1>
-                {error && <p>Email o password incorrectos</p>}
             </div>
-            <div className="login-body">
+            <div className="login-body"> 
+                {error && <p>Email o password incorrectos</p>}
                 <form>
                     <div className="login-input">
-                        <User color="#666666" width={'20px'} className="mx-1"/>
-                        <input type={'email'} placeholder='usuario' className="mx-1" onChange={handleEmailInput} />
+                        <User color="#003366" width={'20px'} className="mx-1"/>
+                        <input type={'email'} placeholder='usuario' onChange={handleEmailInput} className="mx-1"/>
                     </div>
                     <div className="login-input">
-                        <Lock color="#666666" width={'20px'} className="mx-1" />
-                        <input type={'password'} placeholder='contrasena' className="mx-1" onChange={handlePasswordInput} />
+                        <Lock color="#003366" width={'20px'} className="mx-1" />
+                        <input type={'password'} placeholder='contraseña' className="mx-1" onChange={handlePasswordInput} />
                     </div>
-                    <a href='/' >olvidaste tu contrasena?</a>
+                    <a href='/' >olvidaste tu contraseña?</a>
                 </form>
             </div>
             <div className="login-footer">
-                <Button width={'medium'} color="primary" onClick={() => {postLogin()}} >Iniciar sesion!</Button>
-                <p>No tienes una cuenta? <Link to="/registro">Registrate</Link></p>
+                <Button width={'large'} color="secondary" onClick={() => {postLogin()}} >Iniciar sesion</Button>
+                <p className="p-registro">No tienes una cuenta? <Link className="link-registro" to="/registro">Regístrate</Link></p>
             </div>
         </section>
     )

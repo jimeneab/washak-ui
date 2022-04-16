@@ -43,7 +43,7 @@ const AddPosition = () => {
                 <textarea placeholder="Referencias adicionales" name="more details" id="position-details" rows="3"></textarea>
             </div>
             <div className="add-position-footer mx-4">
-                <Button width={'large'} color="primary">Guardar</Button>
+                <Button width={'large'} color="primary">Siguiente</Button>
             </div>
         </section>
     )
