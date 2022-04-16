@@ -22,6 +22,14 @@
   margin-bottom: 30px;
 }
 
+.subtitle {
+  color: #003366;
+  font-family: 'Ubuntu', italic;
+  font-size: 26px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
 .bgimg-1{
   background-image: url(./Images/Background.png);
   /* background-repeat: no-repeat; */
