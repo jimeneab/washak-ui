@@ -1,6 +1,5 @@
 .add-position{
     height: 100vh;
-    background: #f4eafa;
 }
 
 .add-position-header{
@@ -12,11 +11,6 @@
     justify-content: space-between;
     padding: 10px;
  }
-
-.add-position-header img{
-   width: 10%;
- }
-
 
 .add-position-header h1{
     color: #003366;
@@ -32,16 +26,17 @@
 }
 
 .add-position-input{
-    width: 80%;
-    margin: 30px auto 5px auto;
-    border-radius: 5px;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 12px;
     text-align: left;
     background-color: white;
-    padding: 5px 0;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
 .add-position-input input{
-    
     width: 85%;
 }
 
@@ -57,5 +52,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    margin-bottom: 10px;
+}
+
+.current-position {
+    text-align: left;
+    font-family: Oxygen;
+    font-weight: 700;
+    color: #003366;
+    text-decoration: underline;
 }

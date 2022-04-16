@@ -30,8 +30,8 @@ const Home = () => {
         <h2 className="subtitle ms-4">Elige uno de tus vehículos</h2>
         <motion.div ref={sliderVehicles} className="slider-container ps-4">
           <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
-            {smallCards.map(card => 
-              <SmallCard />
+            {smallCards.map((_, index) => 
+              <SmallCard key={index} />
             )}
           </motion.div>
         </motion.div>
