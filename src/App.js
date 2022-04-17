@@ -25,6 +25,8 @@ function App() {
 
   const isLogged = () => {
       window.localStorage.getItem(token)
+      {token ? setLogged(true) : setLogged(false)}
+      
   }
 
 
