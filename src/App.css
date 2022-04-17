@@ -45,3 +45,7 @@
   background-size: cover;
   height: 100vh;
 }
+
+input:focus {
+  outline: transparent;
+}

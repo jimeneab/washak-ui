@@ -14,7 +14,6 @@
    width: 75%;
  }
 
-
 .login-header h1{
     color: #003366;
     font-family: 'Ubuntu';
@@ -22,7 +21,6 @@
     font-weight: 700;
     font-size: 30px;
 }
-
 
 .login-body{
     height: 50%;
@@ -54,10 +52,6 @@
 .login-input input::placeholder{
     color: #003366;
     font-family: Oxygen;
-}
-
-.login-input input:focus{
-   outline-color: transparent;
 }
 
 .login-input input{
