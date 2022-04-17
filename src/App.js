@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import Register from "./Views/Register/register"
@@ -21,21 +21,28 @@ import RateService from './Views/RateService/RateService';
 
 function App() {
   const [isShowModal, setIsShowModal] = useState(false)
-    
+  const [logged, setLogged] = useState(null)
+
+  const isLogged = () => {
+      window.localStorage.getItem(token)
+  }
+
+
   const toggleModal = () => {
-      setIsShowModal(!isShowModal)
+    setIsShowModal(!isShowModal)
   }
 
   return (
+    
     <div className="App">
-      <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
+
+      <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
+
       <Routes>
-       
-        <Route path='/' element={<Home />} />
-        <Route path='/landing' element={<Landing />} />
+        <Route path='/' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registro' element={<Register />} />
-        <Route path='/notFound' element={<NotFound />} />
         <Route path='/registerCar' element={<RegisterCar />} />
         <Route path='/perfil' element={<Profile />} />
         <Route path='/addPosition' element={<AddPosition />} />
@@ -46,8 +53,13 @@ function App() {
         <Route path='/serviceHistory' element={<Historial />} />
         <Route path='/workInProgress' element={<Progress />} />
         <Route path='/rateService' element={<RateService />} />
+        <Route path='*' element={<NotFound />} />
+
+
       </Routes>
-      
+
+
+
       <Link to='/landing'>
         <button>Landing</button>
       </Link>

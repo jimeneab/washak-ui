@@ -18,12 +18,15 @@ const Home = () => {
   const [widthServices, setWidthServices] = useState(0)
   const sliderServices = useRef()
 
+
   useEffect(() => {
     setWidthVehicles(sliderVehicles.current.scrollWidth - sliderVehicles.current.offsetWidth)
     setWidthServices(sliderServices.current.scrollWidth - sliderVehicles.current.offsetWidth)
   }, [])
 
+
   return(
+
     <div className="bgimg-1">
       <NavBar isHome="true"/>        
       <section className="user-vehicles">
@@ -50,6 +53,7 @@ const Home = () => {
         <Button color="primary" width="large">Siguiente</Button>
       </div>
     </div>
+
   )
 }
 
