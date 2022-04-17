@@ -1,0 +1,39 @@
+.add-button {
+  width:24%;
+  margin-right: 40px;
+}
+
+.add-plus {
+  position: relative;
+  background-color: #9933cc;
+  width: 28px;
+  height: 28px;
+  top: -14px;
+  left: 70px;
+  box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+}
+
+.add-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  width: 85px;
+  height: 85px;
+  background-color: #f3f3f3;
+  box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+}
+
+.front-car {
+  width: 60px;
+}
+
+.add-info {
+  position: relative;
+  top:-10px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-family: Oxygen;
+  color: #003366;
+}

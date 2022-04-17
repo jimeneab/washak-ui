@@ -4,10 +4,11 @@ import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import './profile.css'
-import { Mail, Phone, User } from "react-feather";
+import { Mail, Phone, User, Plus } from "react-feather";
 import { MdLocationPin } from "react-icons/md";
 import { AiOutlineCar } from "react-icons/ai";
-
+import avatar from "../../Images/user-avatar.svg"
+import AddButton from "../../Components/AddButton/AddButton"
 
 
 const Profile = () => {
@@ -27,46 +28,45 @@ const Profile = () => {
     }
 
     return (
-        <section className="profile">
+        <section className="profile bgimg-1">
             <div className="profile-header">
-                <div>
-                    <img src="https://picsum.photos/seed/picsum/200/200" className="rounded-circle" alt="" />
+                <div className="complete-user-img">
+                    <div className="rounded-circle user-circle">
+                        <img src={avatar} alt="" />
+                    </div>
+                    <div className="rounded-circle add-pic">
+                        <Plus color="#f3f3f3" />
+                    </div>
                 </div>
-                <h1>Completa tu Perfil</h1>
+                <h1 className="subtitle">Completa tu Perfil</h1>
             </div>
-            <div className="profile-body mb-3">
+            <div className="profile-body mx-4">
                 <form>
                     <div className="profile-input">
-                        <User color="#666666" width={'20px'} className="mx-1" />
+                        <User color="#003366" width={'20px'} className="mx-1" />
                         <input type="text" placeholder="Nombre" name="name" className="mx-1" onChange={profileData}/>
                     </div>
                     <div className="profile-input">
-                        <User color="#666666" width={'20px'} className="mx-1" />
+                        <User color="#003366" width={'20px'} className="mx-1" />
                         <input type="text" placeholder="Apellido" name="lastName" className="mx-1" onChange={profileData}/>
                     </div>
                     <div className="profile-input">
-                        <Mail color="#666666" width={'20px'} className="mx-1" />
+                        <Mail color="#003366" width={'20px'} className="mx-1" />
                         <input type="text" placeholder="Correo" name="mail" className="mx-1" onChange={profileData}/>
                     </div>
                     <div className="profile-input">
-                        <Phone color="#666666" width={'20px'} className="mx-1" />
+                        <Phone color="#003366" width={'20px'} className="mx-1" />
                         <input type="tel" placeholder="Telefono" name="phone" className="mx-1" onChange={profileData}/>
                     </div>
                 </form>
             </div>
-            <div className="col-12 d-flex ">
-                <div className="col-6">
-                    <button className="button-img">< AiOutlineCar /></button>
-                    <h3>Añade un vehículo</h3>
-                </div>
-                <div className="col-6">
-                    <button className="button-img"><MdLocationPin /></button>
-                    <h3>Añade una ubicación</h3>
-                </div>
+            <div className="complete-add d-flex mx-4">
+                <AddButton type="vehicle"/>
+                <AddButton />
             </div>
-            <div className="profile-footer">
-                <Button width={'medium'} color="primary" onClick={saveHandlerProfile}> Guardar </Button>
-                <Link to="/"><p>Completar mi perfil mas tarde</p></Link>
+            <div className="profile-footer mx-4">
+                <Button width={'large'} color="primary" onClick={saveHandlerProfile}> Guardar </Button>
+                <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link>
             </div>
         </section>
     )
