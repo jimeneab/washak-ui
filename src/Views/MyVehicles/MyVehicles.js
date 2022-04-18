@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "./MyVehicles.css";
 import {Navigate} from 'react-router-dom'
 import CardVehicles from "../../Components/CardVehicles/CardVehicles";
@@ -6,26 +7,26 @@ import NavBar from "../../Components/NavBar/NavBar";
 import Button from "../../Components/Button/Button"
 
 function MyVehicles(props) {
-
+  
+  
   const token = localStorage.getItem('token')
-  const user = localStorage.getItem('user')
-    console.log(token)
-    console.log(user)
+  const userId = localStorage.getItem('user')
+  console.log(token)
+  console.log(userId)
+  
+  if (!token) {
+      return <Navigate to="/login" replace />;
+  }
 
-    // if (!token) {
-    //     return <Navigate to="/login" replace />;
-    // }
-
-    // const getVehicles = () => {
-    //   axios.get(`localhost:4000/cars/${}`, {
-    //     params: {
-    //       marca,
-    //       modelo,
-    //       color,
-    //       placa
-    //     }
-    //   })
-    // }
+    const getVehicles = () => {
+      axios.get(`http://localhost:4000/cars/cars/${userId}`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(e =>{
+        console.error(e)
+      })
+    }
 
 
   return (
@@ -47,7 +48,7 @@ function MyVehicles(props) {
           />
         })} */}
       </section>
-      <Button color="primary" width="large">Añadir</Button>
+      <Button color="primary" width="large" onClick={() => getVehicles()}>Añadir</Button>
     </div>
   );
 }
