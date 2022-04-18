@@ -59,8 +59,8 @@ const Register = () => {
                      </div>
                 </form>
             </div>
-            <div>
-                <Button width={'medium'} color="secondary" onClick={() => saveHandlerUser()}>Regístrate</Button>
+            <div className="mx-4">
+                <Button width={'large'} color="secondary" onClick={() => saveHandlerUser()}>Regístrate</Button>
                 <p className="p-registro">Ya tienes cuenta? <Link className="link-registro" to="/login">Inicia Sesión</Link></p>
             </div>
         </section>

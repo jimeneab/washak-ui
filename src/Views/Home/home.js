@@ -24,29 +24,31 @@ const Home = () => {
   }, [])
 
   return(
-    <div className="bgimg-1">
+    <div className="bgimg-1 home">
       <NavBar isHome="true"/>        
       <section className="user-vehicles">
         <h2 className="subtitle ms-4">Elige uno de tus vehículos</h2>
-        <motion.div ref={sliderVehicles} className="slider-container ps-4">
-          <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
-            {smallCards.map((_, index) => 
-              <SmallCard key={index} />
-            )}
+        <form className="home-vehicles">
+          <motion.div ref={sliderVehicles} className="slider-container ps-4">
+            <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
+              {smallCards.map((_, index) => 
+                <SmallCard key={index} />
+              )}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </form>
         <h2 className="subtitle ms-4">Elige el tipo de servicio</h2>
       </section>
       <section className="services">
         <motion.div ref={sliderServices} className="slider-container ps-4">
-          <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthServices + 18)}}>
+          <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthServices + 22)}}>
             <ServiceCard image="express" type="EXPRESS" price="$90.00" />
             <ServiceCard image="interior" type="COMPLETE" price="$150.00" />
             <ServiceCard image="premium" type="PREMIUM" price="$220.00"/>
           </motion.div>
         </motion.div>
       </section>
-      <div className="button-container px-4">
+      <div className="button-container px-4 mt-4">
         <Button color="primary" width="large">Siguiente</Button>
       </div>
     </div>

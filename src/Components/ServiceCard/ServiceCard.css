@@ -2,8 +2,7 @@
     background-color: #f3f3f3;
     border-radius: 1.5rem;
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
-    margin-bottom: 30px;
-    padding: 25px;
+    padding: 20px;
     height: 250px;
     justify-content: space-between;
 }

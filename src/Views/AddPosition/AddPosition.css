@@ -6,10 +6,6 @@
    height: 15%;
 }
 
-.add-position-body{
-    height: 70%;
-}
-
 .add-position-input{
     width: 100%;
     margin-top: 40px;
@@ -55,7 +51,9 @@
     width: 100%;
     border-radius: 1.5rem;
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
-    padding:20px;
+    padding:15px;
     font-family: Oxygen;
     color:#003366;
+    margin-bottom: 20px;
+
   } 
