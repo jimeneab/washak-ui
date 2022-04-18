@@ -1,9 +1,20 @@
 import React from "react";
 import NavBar from "../../Components/NavBar/NavBar";
+import {Navigate} from 'react-router-dom'
 import "./Historial.css"
 import CardHistory from "../../Components/CardHistory/CardHistory"
 
 function Historial() {
+
+
+
+  let token = localStorage.getItem('token');
+      console.log(token)
+  
+      if (!token) {
+          return <Navigate to="/login" replace />;
+      }
+
   return(
     <div className="bgimg-1">
       <NavBar />

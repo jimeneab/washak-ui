@@ -1,4 +1,5 @@
 import { React, useState } from "react"
+import {Navigate} from 'react-router-dom'
 import NavBar from "../../Components/NavBar/NavBar"
 import Button from "../../Components/Button/Button"
 import "./RateService.css"
@@ -16,6 +17,13 @@ function RateService({ service, idService}){
   const [currentValue, setCurrentValue] = useState(0)
   const [hoverValue, setHoverValue] = useState(undefined)
   const [inputRateObj, setInputRateObj] = useState({})
+
+  let token = localStorage.getItem('token');
+    console.log(token)
+
+    if (!token) {
+        return <Navigate to="/login" replace />;
+    }
 
   const handleClick = value => setCurrentValue(value)
 

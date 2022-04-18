@@ -1,5 +1,6 @@
 import { React, useState, useRef, useEffect } from "react";
 import NavBar from "../../Components/NavBar/NavBar";
+import {Navigate} from 'react-router-dom'
 import SmallCard from "../../Components/SmallCard/SmallCard";
 import { motion } from "framer-motion"
 import "./home.css"
@@ -17,11 +18,19 @@ const Home = () => {
   //services cards 
   const [widthServices, setWidthServices] = useState(0)
   const sliderServices = useRef()
-
+  
+  
   useEffect(() => {
     setWidthVehicles(sliderVehicles.current.scrollWidth - sliderVehicles.current.offsetWidth)
     setWidthServices(sliderServices.current.scrollWidth - sliderVehicles.current.offsetWidth)
+    let token = localStorage.getItem('token');
+        console.log(token)
+    
+        if (!token) {
+            return <Navigate to="/login" replace />;
+        }
   }, [])
+  
 
   return(
     <div className="bgimg-1">
