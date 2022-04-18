@@ -1,0 +1,15 @@
+.home {
+    height: 100vh;
+}
+
+.home-vehicles {
+    height: 10%;
+}
+.slider-container {
+    overflow-x: hidden;
+}
+
+.slider-vehicles {
+    margin-bottom: 15px;
+    cursor:grab;
+}

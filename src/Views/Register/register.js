@@ -4,13 +4,15 @@ import './register.css'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
-import api from "../../lib/api";
+import axios from "axios";
+import logoMedium from "../../Images/logo-medium.svg"
 
 
 const Register = () => {
 
-
     const [newUser, setNewUser] = useState({})
+    const [success, setSuccess] = useState(null)
+    const [error, setError] = useState(null)
 
     const formHandlerUser = event => {
         const name = event.target.name
@@ -20,47 +22,48 @@ const Register = () => {
     }
 
     const saveHandlerUser = async () => {
-        const result = await api.saveUser(newUser)
-        console.log(result)
+        axios.post(`http://localhost:4000/user`, newUser)
+        .then(res => {
+            if(res.status === 200){
+                setSuccess(200)
+            }
+        })
+        .catch(err => {
+            setError(err)
+        })
     }
 
-
     return (
-        <section className="register">
+        <section className="register bgimg-2">
             <div className="register-header">
                 <div>
-                    <img src="https://picsum.photos/200/200" className="rounded-circle" alt="" />
+                    <img src={logoMedium} alt="washak medium logo" />
                 </div>
-                <h1>Bienvenido</h1>
+                <h1>bienvenido</h1>
+                {success && <p>Usuario creado con exito</p>}
+                {error && <p>El usuario no pudo ser creado</p>}
             </div>
-            <div className="register-body mb-3">
+            <div className="register-body mx-4">
                 <form>
                     <div className="register-input">
-                        <User color="#666666" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Usuario" name="User" className="mx-1" onChange={formHandlerUser}/>
+                        <User color="#003366" width={'20px'} className="mx-1" />
+                        <input type="text" placeholder="Nombre" name="name" className="mx-1" onChange={formHandlerUser}/>
                     </div>
                     <div className="register-input">
-                        <User color="#666666" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" onChange={formHandlerUser}/>
-                    </div>
-                    <div className="register-input">
-                        <Mail color="#666666" width={'20px'} className="mx-1" />
-                        <input type="email" placeholder="Correo" name="Mail" className="mx-1" onChange={formHandlerUser} />
+                        <Mail color="#003366" width={'20px'} className="mx-1" />
+                        <input type="email" placeholder="correo" name="email" className="mx-1" onChange={formHandlerUser} />
                      </div>
                     <div className="register-input">
-                        <Lock color="#666666" width={'20px'} className="mx-1" />
-                        <input type="password" placeholder="Contraseña" name="Password" className="mx-1" onChange={formHandlerUser}/>
+                        <Lock color="#003366" width={'20px'} className="mx-1" />
+                        <input type="password" placeholder="contraseña" name="password" className="mx-1" onChange={formHandlerUser}/>
                      </div>
                 </form>
             </div>
-            <div>
-                <Button width={'medium'} color="secondary" onClick={saveHandlerUser}>Registrate</Button>
-                <p>Ya tienes cuenta? <Link to="/">Inicia Sesión</Link></p>
+            <div className="mx-4">
+                <Button width={'large'} color="secondary" onClick={() => saveHandlerUser()}>Regístrate</Button>
+                <p className="p-registro">Ya tienes cuenta? <Link className="link-registro" to="/login">Inicia Sesión</Link></p>
             </div>
-
         </section>
-
-
     )
 }
 

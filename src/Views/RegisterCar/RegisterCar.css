@@ -1,6 +1,5 @@
 .register{
     height: 100vh;
-    background: #f4eafa;
 }
 
 .principal-text{
@@ -21,7 +20,23 @@
     margin-bottom: 3rem;
 }
 
+.registerCar-input {
+    width: 80%;
+    margin: 10px auto 5px auto;
+    border-radius: 5px;
+    text-align: left;
+    background-color: white;
+    padding: 5px 0;
+}
+
 .registerCar-footer{
     margin-top: 9rem;
 }
+
+.button-registerCar{
+    width: 20%;
+    height: 3rem;
+    border-radius: 10%;
+}
+
 

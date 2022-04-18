@@ -1,6 +1,5 @@
 .login{
     height: 100vh;
-    background: #f4eafa;
 }
 
 .login-header{
@@ -12,9 +11,8 @@
 }
 
 .login-header img{
-   width: 70%;
+   width: 75%;
  }
-
 
 .login-header h1{
     color: #003366;
@@ -24,28 +22,41 @@
     font-size: 30px;
 }
 
-
 .login-body{
-    height: 53%;
+    height: 50%;
     text-align: right;
 }
 
+.login-body p:first-of-type{
+    text-align: left;
+    font-family: Oxygen;
+    font-weight: 700;
+    color:#003366;
+}
+
 .login-body a{
-    margin: 10px;
+    color:#003366;
+    font-family: Oxygen;
 }
 
 .login-input{
-    width: 80%;
-    margin: 30px auto 5px auto;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 12px;
     text-align: left;
-    background-color: white;
-    padding: 5px 0;
+    background-color: #f3f3f3;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+}
+
+.login-input input::placeholder{
+    color: #003366;
+    font-family: Oxygen;
 }
 
 .login-input input{
-    
     width: 85%;
+    background-color: #f3f3f3;
 }
 
 .login-body input{
@@ -54,4 +65,15 @@
 
 .login-footer{
     height: 12%;
+}
+
+.link-registro{
+    font-family: Oxygen;
+    font-weight: 700;
+    color:#003366;
+}
+
+.p-registro{
+    font-family: Oxygen;
+    color:#003366;
 }

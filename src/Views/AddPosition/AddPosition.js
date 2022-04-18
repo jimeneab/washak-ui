@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Button from "../../Components/Button/Button";
-import { Search, ArrowLeft } from 'react-feather'
+import {Navigate} from 'react-router-dom'
+import { Search } from 'react-feather'
 import MapView from "../../Components/MapView/Mapview";
+import NavBar from "../../Components/NavBar/NavBar";
 import './AddPosition.css'
+import api from '../../lib/api'
 
 
 
@@ -10,34 +13,45 @@ const AddPosition = () => {
 
     const [address, setAddress] = useState({})
 
+    let token = localStorage.getItem('token');
+      console.log(token)
+  
+      if (!token) {
+          return <Navigate to="/login" replace />;
+      }
+
     const addressHandler = event => {
         const direction = event.target.value
         console.log(address)
         setAddress({...address, direction})
     }
 
+    const saveHandlerAddress = async () => {
+        const result = await api.saveAddress(address)
+        console.log(result)
+    }
+
     return(
-        <section className="add-position">
+        <section className="add-position bgimg-1">
             <div className="add-position-header">
-                <div id='add-positon-navbar'>
-                    <ArrowLeft color="#666666" width={'40px'} className="mx-1" />
-                    <img src="https://picsum.photos/seed/picsum/200/200" className="rounded-circle" alt="Cinque Terre" />
-                </div>
-                <h1>Anadir ubicacion</h1>
+                <NavBar />
+                <h1 className="title ms-4">Elige tu ubicación</h1>
             </div>
-            <div className="add-position-body">
+            <div className="add-position-body px-4">
                 <form>
                     <div className="add-position-input">
                         <Search color="#666666" width={'20px'} className="mx-1"/>
-                        <input type={'email'} placeholder='Calle #, Colonia, Ciudad, Estado' className="mx-1" onChange={addressHandler}/>
+                        <input type="search" placeholder='Calle #, Colonia, Ciudad, Estado' className="mx-1" onChange={addressHandler}/>
                     </div>
                 </form>
                 <div className="map-container">
                     <MapView></MapView>
                 </div>
+                <p className="current-position">Usar ubicación actual</p>
+                <textarea placeholder="Referencias adicionales" name="more details" id="position-details" rows="3"></textarea>
             </div>
-            <div className="add-position-footer">
-                <Button width={'medium'} color="primary">Guardar</Button>
+            <div className="add-position-footer mx-4">
+                <Button width={'large'} color="primary" onClick={saveHandlerAddress}>Siguiente</Button>
             </div>
         </section>
     )

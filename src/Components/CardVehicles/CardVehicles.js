@@ -12,9 +12,10 @@ import {
 function CardVehicles({ brand, model, color, licensePlate }) {
   const [dropdown, setDropdown] = useState(false);
 
-  const openDropdown = () => {
-    setDropdown(!dropdown);
-  };
+  //Dropdown
+  const openDropdown = () => setDropdown(!dropdown);
+
+  //Modal
 
   return (
     <div className='card-vehicle d-flex flex-column align-items-center'>
@@ -30,12 +31,12 @@ function CardVehicles({ brand, model, color, licensePlate }) {
         </p>
         <Dropdown isOpen={dropdown} toggle={openDropdown}>
           <DropdownToggle className='card-dropdown'>
-            <MoreVertical color='black' />
+            <MoreVertical color='#003366' />
           </DropdownToggle>
           <DropdownMenu className='card-dmenu'>
-            <DropdownItem>Editar</DropdownItem>
+            <DropdownItem className="card-ditem">Editar</DropdownItem>
             <hr />
-            <DropdownItem>Eliminar</DropdownItem>
+            <DropdownItem className="card-ditem">Eliminar</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </div>

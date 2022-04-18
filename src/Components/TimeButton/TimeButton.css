@@ -1,0 +1,14 @@
+.time-button {
+    background-color: #f3f3f3;
+    border-radius: 1rem;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    padding: 10px;
+    font-family: Oxygen;
+    color: #003366;
+    flex: 1 1;
+    padding: 10px;
+}
+
+.time-button p{
+    margin-bottom: 0;
+}

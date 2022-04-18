@@ -13,10 +13,15 @@ import ModalComponent from './Components/Modal/Modal';
 import MyVehicles from './Views/MyVehicles/MyVehicles';
 import DateAndPay from './Views/DateAndPay/dateandpay'
 import Landing from './Views/Landing/Landing';
+import Historial from './Views/Historial/Historial'
+import Progress from './Views/Progress/Progress';
+import RateService from './Views/RateService/RateService';
 
 
 function App() {
   const [isShowModal, setIsShowModal] = useState(false)
+
+  
     
   const toggleModal = () => {
       setIsShowModal(!isShowModal)
@@ -37,9 +42,15 @@ function App() {
         <Route path='/fecha' element={<PickDate />} />
         <Route path='/myVehicles' element={<MyVehicles />} />
         <Route path='/dateAndPay' element={<DateAndPay />} />
+        <Route path='/serviceHistory' element={<Historial />} />
+        <Route path='/workInProgress' element={<Progress />} />
+        <Route path='/rateService' element={<RateService />} />
       </Routes>
       
       <Link to='/landing'>
+        <button>Landing</button>
+      </Link>
+      <Link to='/'>
         <button>Home</button>
       </Link>
       <Link to='/login'>
@@ -70,7 +81,15 @@ function App() {
       <Link to='/dateAndPay'>
         <button>Cita-Pago</button>
       </Link>
-      
+      <Link to='/serviceHistory'>
+        <button>Historial de servicios</button>
+      </Link>
+      <Link to='/workInProgress'>
+        <button>En proceso</button>
+      </Link>
+      <Link to='/rateService'>
+        <button>Calificar</button>
+      </Link>
     </div>
   );
 }

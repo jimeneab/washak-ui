@@ -1,0 +1,42 @@
+.card-service{
+    background-color: #f3f3f3;
+    border-radius: 1.5rem;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    padding: 20px;
+    height: 250px;
+    justify-content: space-between;
+}
+
+.wide{
+    width: 80%;
+}
+
+.service-img {
+    width: 120px;
+    margin-left: 15px;
+    pointer-events: none;
+}
+
+.ultrawide .service-img {
+    width: 240px;
+}
+
+.service-info{
+    width: 50%;
+}
+
+.service-info p {
+    text-align: left;
+    font-family: Oxygen;
+    font-size: 18px;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 0;
+}
+
+.service-info p:last-of-type {
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 15px;
+}

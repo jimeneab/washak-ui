@@ -1,27 +1,21 @@
 .profile{
     height: 100vh;
-    background: #f4eafa;
 }
 
 .profile-header{
-   height: 35%;
+   height: 30%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
 
-.profile-header img {
-    width: 70%
+.profile-header h1{
+    margin-bottom: 0;
 }
 
-.profile-header h1{
-    color: #003366;
-    font-family: 'Ubuntu';
-    font-style: italic;
-    font-weight: 70px;
-    font-size: 30px;
-    margin-top: 3rem;
+.profile-header img {
+    width: 70%
 }
 
 .profile-body{
@@ -30,33 +24,67 @@
 }
 
 .profile-input {
-    width: 80%;
-    margin: 10px auto 5px auto;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 12px;
     text-align: left;
-    background-color: white;
-    padding: 5px 0;
+    background-color: #f3f3f3;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
 .profile-input input{
     width: 80%;
-}
-
-.profile-body input{
+    background-color: #f3f3f3;
     border: none;
 }
 
-.profile-button{
-    height: 50%;
-    width: 50%;
-
+.profile-input input::placeholder{
+    font-family: Oxygen;
+    color:#003366;
 }
 
 .profile-footer{
     margin-top: 2rem;
 }
 
-.button-img{
-    font-size: 3rem;
+.user-circle {
+    position: relative;
+    background-color: #003366;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: -10px;
 }
 
+.user-circle img {
+    width: 60px;
+    position: relative;
+    bottom: -6px;
+}
+
+.add-pic {
+    position: relative;
+    top:-28px;
+    right:-70px;
+    background-color: #9933cc;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.complete-add {
+    margin-top: 20px;
+    height: 20%;
+}
+
+.link-complete {
+    font-family: Oxygen;
+    font-weight: 700;
+    color:#003366;
+}
