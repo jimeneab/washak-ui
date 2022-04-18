@@ -1,4 +1,5 @@
 import { Input } from 'reactstrap'
+import {Navigate} from 'react-router-dom'
 import React from 'react'
 import { useState } from 'react'
 import api from '../../../src/lib/api'
@@ -8,6 +9,13 @@ import './RegisterCar.css'
 
 function RegisterCar() {
     const [newCars, setNewCars] = useState({})
+
+    let token = localStorage.getItem('token');
+    console.log(token)
+
+    if (!token) {
+        return <Navigate to="/login" replace />;
+    }
 
     const formHandler = event => {
         const value = event.target.value

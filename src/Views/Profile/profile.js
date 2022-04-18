@@ -1,7 +1,7 @@
 import React from "react";
 import api from "../../lib/api";
 import Button from "../../Components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import './profile.css'
 import { Mail, Phone, User, Plus } from "react-feather";
@@ -11,14 +11,24 @@ import avatar from "../../Images/user-avatar.svg"
 import AddButton from "../../Components/AddButton/AddButton"
 
 
+
 const Profile = () => {
 
     const [profile, setProfile] = useState({})
 
+    let token = localStorage.getItem('token');
+    console.log(token)
+
+    if (!token) {
+        return <Navigate to="/login" replace />;
+    }
+
+    console.log(token)
+
     const profileData = event => {
         const name = event.target.name
         const value = event.target.value
-        setProfile({...profile, [name]:value})
+        setProfile({ ...profile, [name]: value })
         console.log(profile)
     }
 
@@ -44,24 +54,24 @@ const Profile = () => {
                 <form>
                     <div className="profile-input">
                         <User color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Nombre" name="name" className="mx-1" onChange={profileData}/>
+                        <input type="text" placeholder="Nombre" name="name" className="mx-1" onChange={profileData} />
                     </div>
                     <div className="profile-input">
                         <User color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" onChange={profileData}/>
+                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" onChange={profileData} />
                     </div>
                     <div className="profile-input">
                         <Mail color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Correo" name="mail" className="mx-1" onChange={profileData}/>
+                        <input type="text" placeholder="Correo" name="mail" className="mx-1" onChange={profileData} />
                     </div>
                     <div className="profile-input">
                         <Phone color="#003366" width={'20px'} className="mx-1" />
-                        <input type="tel" placeholder="Telefono" name="phone" className="mx-1" onChange={profileData}/>
+                        <input type="tel" placeholder="Telefono" name="phone" className="mx-1" onChange={profileData} />
                     </div>
                 </form>
             </div>
             <div className="complete-add d-flex mx-4">
-                <AddButton type="vehicle"/>
+                <AddButton type="vehicle" />
                 <AddButton />
             </div>
             <div className="profile-footer mx-4">

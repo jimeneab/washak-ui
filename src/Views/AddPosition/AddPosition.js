@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../Components/Button/Button";
+import {Navigate} from 'react-router-dom'
 import { Search } from 'react-feather'
 import MapView from "../../Components/MapView/Mapview";
 import NavBar from "../../Components/NavBar/NavBar";
@@ -11,6 +12,13 @@ import api from '../../lib/api'
 const AddPosition = () => {
 
     const [address, setAddress] = useState({})
+
+    let token = localStorage.getItem('token');
+      console.log(token)
+  
+      if (!token) {
+          return <Navigate to="/login" replace />;
+      }
 
     const addressHandler = event => {
         const direction = event.target.value
@@ -43,7 +51,7 @@ const AddPosition = () => {
                 <textarea placeholder="Referencias adicionales" name="more details" id="position-details" rows="3"></textarea>
             </div>
             <div className="add-position-footer mx-4">
-                <Button width={'large'} color="primary">Siguiente</Button>
+                <Button width={'large'} color="primary" onClick={saveHandlerAddress}>Siguiente</Button>
             </div>
         </section>
     )
