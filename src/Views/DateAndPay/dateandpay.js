@@ -1,8 +1,17 @@
 import './dateandpay.css'
 import { ArrowLeft } from "react-feather"
+import {Navigate} from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 
 const DateAndPay = () => {
+
+    let token = localStorage.getItem('token');
+      console.log(token)
+  
+      if (!token) {
+          return <Navigate to="/login" replace />;
+      }
+
     return (
         <section className="body-dateandpay">
             <div className="add-position-header">

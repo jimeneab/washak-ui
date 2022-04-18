@@ -1,4 +1,5 @@
 import React from "react"
+import {Navigate} from 'react-router-dom'
 import NavBar from "../../Components/NavBar/NavBar"
 import Button from "../../Components/Button/Button"
 import "./Progress.css"
@@ -6,6 +7,16 @@ import express from "../../Images/express.svg"
 import { MapPin, Calendar } from "react-feather"
 
 function Progress({ service, brand, location, date, time }) {
+
+
+  let token = localStorage.getItem('token');
+  console.log(token)
+
+  if (!token) {
+      return <Navigate to="/login" replace />;
+  }
+
+
   return(
     <div className="bgimg-2">
       <NavBar />

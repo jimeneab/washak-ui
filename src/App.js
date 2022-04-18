@@ -21,6 +21,8 @@ import RateService from './Views/RateService/RateService';
 
 function App() {
   const [isShowModal, setIsShowModal] = useState(false)
+
+  
     
   const toggleModal = () => {
       setIsShowModal(!isShowModal)

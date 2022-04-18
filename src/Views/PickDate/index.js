@@ -1,5 +1,6 @@
 import { ArrowLeft } from 'react-feather'
 import React, { useState } from 'react'
+import {Navigate} from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import Button from '../../Components/Button/Button';
 import setHours from "date-fns/setHours";
@@ -12,7 +13,14 @@ const PickDate = () => {
 
     const [startDate, setStartDate] = useState(
         setHours(setMinutes(new Date(), 0), 8)
-      );
+      )
+
+      let token = localStorage.getItem('token');
+      console.log(token)
+  
+      if (!token) {
+          return <Navigate to="/login" replace />;
+      }
 
     const saveHandlerDate = async () => {
         const result = await api.saveDate(startDate)
