@@ -1,5 +1,6 @@
 import React from "react";
 import { User, Facebook, Instagram, Twitter } from 'react-feather'
+import { Link } from "react-router-dom";
 import './Landing.css'
 
 const Landing = () => {
@@ -8,7 +9,9 @@ const Landing = () => {
             <section className="landing-hero">
                 <h1>Washak</h1>
                 <div>
-                    <button>Entrar!</button>
+                    <Link to='/login'>
+                        <button>Entrar!</button>
+                    </Link>
                 </div>
             </section>
             <section className="landing-how-works py-5">
