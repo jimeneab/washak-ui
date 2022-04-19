@@ -7,13 +7,14 @@
     border-radius: 1.5rem;
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 18px;
     font-family: Oxygen;
     color:#003366;
     font-size: 17px;
 }
 
-.confirm-info p div{
+.confirm-info div.d-flex p{
+    margin-bottom: 8px;
     text-align: left;
 }
 

@@ -19,30 +19,32 @@ const DateAndPay = () => {
             <NavBar />
             <h2 className="title mx-4">Agenda tu cita</h2>
             <div className='mx-4 d-flex flex-column align-items-start confirm-info'>
-                <p>
+                <div className='d-flex'>
                     <ShoppingCart color="#003366" size={30}/>
-                    <b className='ms-4'>Tipo de servicio: </b> 
-                    Express
-                </p>
-                <p>
+                    <p>
+                        <b className='ms-4'>Tipo de servicio: </b> Express
+                    </p>
+                </div>
+                <div className='d-flex'>
                     <img src={carFront} style={{width:35}} />
-                    <b className='ms-4'>Vehículo: </b> 
-                    Jeep • placa
-                </p>
-                <p className='d-flex'>
+                    <p>
+                        <b className='ms-4'>Vehículo: </b> Jeep • placa
+                    </p>
+                </div>
+                <div className='d-flex'>
                     <div className="d-flex ms-1 align-items-center justify-content-center">
                         <MapPin color="#003366" size={30}/>
                     </div>
-                    <div className='ms-4'>
-                        <b>Ubicación: </b> 
-                        San Gabriel 248. San Cayetano, Aguascalientes, Ags. 20010
-                    </div>
-                </p>
-                <p>
+                    <p className='ms-4'>
+                        <b>Ubicación: </b> San Gabriel 248. San Cayetano, Aguascalientes, Ags. 20010
+                    </p>
+                </div>
+                <div className='d-flex'>
                     <Calendar className="ms-1"color="#003366" size={30}/>
-                    <b className='ms-4'>Fecha y hora: </b> 
-                    20 de Abril • 14:00 hrs
-                </p>
+                    <p>
+                        <b className='ms-4'>Fecha y hora: </b> 20 de Abril • 14:00 hrs
+                    </p>
+                </div>
                 <div className="checkout">
                     <p className='mb-0'><b>Subtotal</b> $90.00</p>
                     <p className='mb-0'><b>IVA</b> $14.40</p>
