@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Button from "../../Components/Button/Button";
 import { User, Lock } from 'react-feather'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import './Login.css'
 import logo from "../../Images/logo.svg"
 
@@ -13,13 +13,18 @@ const navigate = useNavigate()
 const [loginData, setLoginData]= useState({email: "", password: ""})
 const [error, setError] = useState(null)
 
+let token = localStorage.getItem('token')
+        if (token) {
+            return <Navigate to="/home" replace />;
+        }
+
 const postLogin = () => {
     axios.post('http://localhost:4000/auth/login', loginData)
     .then(res => {
         if(res.data){
             window.localStorage.setItem('token', res.data.token.token)
             window.localStorage.setItem('user', res.data.token.user)
-            navigate('/')
+            navigate('/home')
         }
     })
     .catch(e => {
@@ -58,7 +63,7 @@ const handlePasswordInput = (e) => {
                 </form>
             </div>
             <div className="login-footer">
-                <Button width={'large'} color="secondary" onClick={() => {postLogin()}} >Iniciar sesion</Button>
+                <Button width={'large'} color="secondary" onClick={() => { postLogin() }} >Iniciar sesion</Button>
                 <p className="p-registro">No tienes una cuenta? <Link className="link-registro" to="/registro">Regístrate</Link></p>
             </div>
         </section>
