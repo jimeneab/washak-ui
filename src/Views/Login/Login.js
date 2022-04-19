@@ -19,7 +19,6 @@ const postLogin = () => {
         if(res.data){
             window.localStorage.setItem('token', res.data.token.token)
             window.localStorage.setItem('user', res.data.token.user)
-            console.log(res)
             navigate('/')
         }
     })

@@ -6,13 +6,17 @@ import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
 import axios from "axios";
 import logoMedium from "../../Images/logo-medium.svg"
+import {useNavigate} from 'react-router-dom'
 
 
 const Register = () => {
 
+
     const [newUser, setNewUser] = useState({})
     const [success, setSuccess] = useState(null)
     const [error, setError] = useState(null)
+
+    const navigate = useNavigate()
 
     const formHandlerUser = event => {
         const name = event.target.name
@@ -26,6 +30,7 @@ const Register = () => {
         .then(res => {
             if(res.status === 200){
                 setSuccess(200)
+                navigate("/")
             }
         })
         .catch(err => {
@@ -47,15 +52,15 @@ const Register = () => {
                 <form>
                     <div className="register-input">
                         <User color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Nombre" name="name" className="mx-1" onChange={formHandlerUser}/>
+                        <input type="text" placeholder="Usuario" name="name" className="mx-1" onChange={formHandlerUser}/>
                     </div>
                     <div className="register-input">
                         <Mail color="#003366" width={'20px'} className="mx-1" />
-                        <input type="email" placeholder="correo" name="email" className="mx-1" onChange={formHandlerUser} />
+                        <input type="email" placeholder="Correo" name="email" className="mx-1" onChange={formHandlerUser} />
                      </div>
                     <div className="register-input">
                         <Lock color="#003366" width={'20px'} className="mx-1" />
-                        <input type="password" placeholder="contraseña" name="password" className="mx-1" onChange={formHandlerUser}/>
+                        <input type="password" placeholder="Contraseña" name="password" className="mx-1" onChange={formHandlerUser}/>
                      </div>
                 </form>
             </div>
