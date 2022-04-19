@@ -40,10 +40,10 @@ const Register = () => {
                     <img src={logoMedium} alt="washak medium logo" />
                 </div>
                 <h1>bienvenido</h1>
-                {success && <p>Usuario creado con exito</p>}
-                {error && <p>El usuario no pudo ser creado</p>}
             </div>
             <div className="register-body mx-4">
+                {success && <p>Usuario creado con exito</p>}
+                {error && <p>El usuario no pudo ser creado</p>}
                 <form>
                     <div className="register-input">
                         <User color="#003366" width={'20px'} className="mx-1" />

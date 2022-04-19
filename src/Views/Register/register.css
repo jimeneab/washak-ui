@@ -39,6 +39,13 @@
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
+.register-body p{
+    text-align: left;
+    font-family: Oxygen;
+    font-weight: 700;
+    color:#003366;
+}
+
 .register-input input{
     width: 85%;
     background-color: #f3f3f3;
