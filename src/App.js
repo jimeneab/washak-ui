@@ -31,7 +31,8 @@ function App() {
     <div className="App">
       <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
       <Routes>
-        <Route path='/landing' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Landing />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registro' element={<Register />} />
         <Route path='/notFound' element={<NotFound />} />
@@ -47,14 +48,11 @@ function App() {
         <Route path='/rateService' element={<RateService />} />
       </Routes>
       
-      <Link to='/landing'>
+      <Link to='/'>
         <button>Landing</button>
       </Link>
-      <Link to='/'>
+      <Link to='/home'>
         <button>Home</button>
-      </Link>
-      <Link to='/login'>
-        <button>login</button>
       </Link>
       <Link to='/notFound'>
         <button>notFound</button>

@@ -1,12 +1,10 @@
-import React from "react";
-import api from "../../lib/api";
+import React, { useEffect } from "react";
+import axios from "axios"
 import Button from "../../Components/Button/Button";
 import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import './profile.css'
-import { Mail, Phone, User, Plus } from "react-feather";
-import { MdLocationPin } from "react-icons/md";
-import { AiOutlineCar } from "react-icons/ai";
+import { Mail, User, Plus } from "react-feather";
 import avatar from "../../Images/user-avatar.svg"
 import AddButton from "../../Components/AddButton/AddButton"
 
@@ -15,26 +13,48 @@ import AddButton from "../../Components/AddButton/AddButton"
 const Profile = () => {
 
     const [profile, setProfile] = useState({})
+    const [success, setSuccess] = useState(null)
+    const [error, setError] = useState(null)
 
-    let token = localStorage.getItem('token');
-    console.log(token)
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('user')
+
+    useEffect(() => {
+        getUserData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     if (!token) {
         return <Navigate to="/login" replace />;
     }
 
-    console.log(token)
-
     const profileData = event => {
         const name = event.target.name
         const value = event.target.value
         setProfile({ ...profile, [name]: value })
-        console.log(profile)
     }
 
-    const saveHandlerProfile = async () => {
-        const result = await api.saveUser(profile)
-        console.log(result)
+    const getUserData = () => {
+        axios.get(`http://localhost:4000/user/${userId}`)
+        .then(res => {
+            setProfile({...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    const saveHandlerProfile =  () => {
+        axios.patch(`http://localhost:4000/user/${userId}`, profile)
+        .then(res => {
+            if(res.data){
+                setSuccess(true)
+            }
+        })
+        .catch(err =>{
+            setError(err)
+        })
+
     }
 
     return (
@@ -49,24 +69,18 @@ const Profile = () => {
                     </div>
                 </div>
                 <h1 className="subtitle">Completa tu Perfil</h1>
+                {success && <p>El usuario se ha actualizado con exito</p>}
+                {error && <p>El no pudo ser actualizado</p>}
             </div>
             <div className="profile-body mx-4">
                 <form>
                     <div className="profile-input">
                         <User color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Nombre" name="name" className="mx-1" onChange={profileData} />
-                    </div>
-                    <div className="profile-input">
-                        <User color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Apellido" name="lastName" className="mx-1" onChange={profileData} />
+                        <input type="text" value={profile.name} name="name" className="mx-1" onChange={profileData} />
                     </div>
                     <div className="profile-input">
                         <Mail color="#003366" width={'20px'} className="mx-1" />
-                        <input type="text" placeholder="Correo" name="mail" className="mx-1" onChange={profileData} />
-                    </div>
-                    <div className="profile-input">
-                        <Phone color="#003366" width={'20px'} className="mx-1" />
-                        <input type="tel" placeholder="Telefono" name="phone" className="mx-1" onChange={profileData} />
+                        <input type="text" value={profile.email} name="email" className="mx-1" onChange={profileData} />
                     </div>
                 </form>
             </div>

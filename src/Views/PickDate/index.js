@@ -27,7 +27,7 @@ const PickDate = () => {
                 {value.slice(3,5)}
             </div>
             <div className='ms-3' style={{lineHeight:1.2, fontWeight:400}}>
-                <p className='mb-0'>{monthsConfig[value.slice(1,2)-1]}</p>
+                <p className='mb-0'>{monthsConfig[startDate.getMonth()]}</p>
                 <p className='mb-0'>{value.slice(6)}</p>
             </div>
             <MoreVertical color="#003366" size={20} />
