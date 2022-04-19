@@ -1,7 +1,9 @@
 import './dateandpay.css'
-import { ArrowLeft } from "react-feather"
-import {Navigate} from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
+import NavBar from '../../Components/NavBar/NavBar.js'
+import { ShoppingCart, Calendar, MapPin } from 'react-feather'
+import carFront from "../../Images/car-front.svg"
 
 const DateAndPay = () => {
 
@@ -13,43 +15,52 @@ const DateAndPay = () => {
       }
 
     return (
-        <section className="body-dateandpay">
-            <div className="add-position-header">
-                <div id='add-positon-navbar'>
-                    <ArrowLeft color="#666666" width={'40px'} className="mx-1" />
-                    <img src="https://picsum.photos/seed/picsum/200/200" className="rounded-circle" alt="Cinque Terre" />
+        <section className="bgimg-1">
+            <NavBar />
+            <h2 className="title mx-4">Agenda tu cita</h2>
+            <div className='mx-4 d-flex flex-column align-items-start confirm-info'>
+                <p>
+                    <ShoppingCart color="#003366" size={30}/>
+                    <b className='ms-4'>Tipo de servicio: </b> 
+                    Express
+                </p>
+                <p>
+                    <img src={carFront} style={{width:35}} />
+                    <b className='ms-4'>Vehículo: </b> 
+                    Jeep • placa
+                </p>
+                <p className='d-flex'>
+                    <div className="d-flex ms-1 align-items-center justify-content-center">
+                        <MapPin color="#003366" size={30}/>
+                    </div>
+                    <div className='ms-4'>
+                        <b>Ubicación: </b> 
+                        San Gabriel 248. San Cayetano, Aguascalientes, Ags. 20010
+                    </div>
+                </p>
+                <p>
+                    <Calendar className="ms-1"color="#003366" size={30}/>
+                    <b className='ms-4'>Fecha y hora: </b> 
+                    20 de Abril • 14:00 hrs
+                </p>
+                <div className="checkout">
+                    <p className='mb-0'><b>Subtotal</b> $90.00</p>
+                    <p className='mb-0'><b>IVA</b> $14.40</p>
+                    <p className='mb-0'><b>Total</b> $104.40</p>
                 </div>
             </div>
-            <div className='text-principal'>
-                <p>Agenda tu Cita</p>
-            </div>
+
             <div>
-                <p className='text-secondary'>servicio:</p>
-                <p className='text-service'> Ecologico</p>
-            </div>
-            <div>
-                <p className='text-secondary'>Vehículo:</p>
-                <p className='text-service'> Jetta</p>
-            </div>
-            <div>
-                <p className='text-secondary'>Ubicación:</p>
-                <p className='text-service'> Mi Casa</p>
-            </div>
-            <div>
-                <p className='text-secondary'>Fecha y Hora:</p>
-                <p className='text-service'>12/04, 14:00</p>
-            </div>
-            <div>
-                <p className='text-principal input-group'>Método de pago</p>
-                <div className='pay-method '>
+                <h2 className='subtitle mx-4 input-group'>Método de pago</h2>
+                {/* <div className='pay-method '>
                     <input type="radio" name="efectivo" id="" className='mx-1 my-1 form-check-input'/> 
                     <label>Efectivo</label>
                     <input type="radio" name="paypal" id="" className='mx-1 my-1 form-check-input'/> 
                     <label >Paypal</label>
-                </div>
+                </div> */}
             </div>
-            <div className='button-date'>
-                <Button color={'primary'} width={'medium'} >Agendar</Button>
+            <div className='mx-4 mt-4'>
+                <Button color={'primary'} width={'large'} >PayPal</Button>
             </div>
         </section>
 
