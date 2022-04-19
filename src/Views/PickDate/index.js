@@ -44,6 +44,7 @@ const PickDate = () => {
         const month = monthsConfig[startDate.getMonth()]
         setTime(hour)
         setDateAndHour({day, month, hour})
+        console.log(dateAndHour)
     }
 
     return (

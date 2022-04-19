@@ -16,6 +16,7 @@ import Landing from './Views/Landing/Landing';
 import Historial from './Views/Historial/Historial'
 import Progress from './Views/Progress/Progress';
 import RateService from './Views/RateService/RateService';
+import Home from './Views/Home/home';
 
 
 function App() {
