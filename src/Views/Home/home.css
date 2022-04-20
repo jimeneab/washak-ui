@@ -13,3 +13,8 @@
     margin-bottom: 15px;
     cursor:grab;
 }
+
+.user-vehicles-header{
+    display: flex;
+    justify-content: space-around;
+}
