@@ -1,7 +1,7 @@
 import { React, useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import NavBar from "../../Components/NavBar/NavBar";
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import SmallCard from "../../Components/SmallCard/SmallCard";
 import { motion } from "framer-motion"
 import "./home.css"
@@ -10,40 +10,44 @@ import Button from "../../Components/Button/Button"
 
 const Home = () => {
   const [myCars,setMyCars] = useState([])
-  const userId = localStorage.getItem('user')
   const navigate = useNavigate();
-
+  
   //vehicles cards 
   const smallCards = Array(4).fill(1)
   const [widthVehicles, setWidthVehicles] = useState(0)
   const sliderVehicles = useRef()
-
-
+  
+  
   //services cards 
   const [widthServices, setWidthServices] = useState(0)
   const sliderServices = useRef()
   
-  const getMyCars = () => {
-    axios.get(`http://localhost:4000/cars/cars/${userId}`)
-    .then(res => {
-      setMyCars(res.data.allCars)
-    })
-    .catch(e =>{
-      console.error(e)
-    })
-  }
-
+  
   
   useEffect(() => {
+    const userId = localStorage.getItem('user')
+    const token = localStorage.getItem('token')
+    const redirectFunction = () => navigate('/login')
+    
+    const getMyCars = () => {
+      axios.get(`http://localhost:4000/cars/cars/${userId}`)
+      .then(res => {
+        setMyCars(res.data.allCars)
+      })
+      .catch(e =>{
+        console.error(e)
+      })
+    }
+
+
     getMyCars()
     setWidthVehicles(sliderVehicles.current.scrollWidth - sliderVehicles.current.offsetWidth)
     setWidthServices(sliderServices.current.scrollWidth - sliderVehicles.current.offsetWidth)
-    let token = localStorage.getItem('token')
-        if (!token) {
-            return <Navigate to="/login" replace />;
-        }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!token) {
+        redirectFunction()
+    }
+  }, [navigate])
   
 if(!myCars.length){
  navigate('/perfil')

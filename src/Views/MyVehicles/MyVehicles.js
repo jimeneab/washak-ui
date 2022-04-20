@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import "./MyVehicles.css";
-import {Navigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import CardVehicles from "../../Components/CardVehicles/CardVehicles";
 import NavBar from "../../Components/NavBar/NavBar";
 import Button from "../../Components/Button/Button"
@@ -10,24 +10,25 @@ function MyVehicles() {
   
   const [carData, setCarData] = useState()
   
-  const token = localStorage.getItem('token')
-  const userId = localStorage.getItem('user')
-  // console.log(token)
-  // console.log(userId)
+  const navigate = useNavigate()
   
-  if (!token) {
-      return <Navigate to="/login" replace />;
-  }
-
-    const getVehicles = () => {
-      axios.get(`http://localhost:4000/cars/cars/${userId}`)
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const userId = localStorage.getItem('user')
+    axios.get(`http://localhost:4000/cars/cars/${userId}`)
       .then(res => {
         setCarData(res.data.allCars)
       })
       .catch(e =>{
         console.error(e)
       })
+
+    const redirectFunction = () => navigate('/login')
+
+    if (!token) {
+        redirectFunction()
     }
+}, [navigate])
 
 
   return (
@@ -47,7 +48,7 @@ function MyVehicles() {
               )
           })}
       </section>
-      <Button color="primary" width="large" onClick={() => getVehicles()}>Añadir</Button>
+      <Button color="primary" width="large" ><Link to="/registerCar"> Añadir</Link></Button>
     </div>
   );
 }
