@@ -49,7 +49,7 @@ function App() {
         <Route path='/rateService' element={<RateService />} />
       </Routes>
       
-{/*       <Link to='/'>
+       <Link to='/'>
         <button>Landing</button>
       </Link>
       <Link to='/home'>
@@ -89,7 +89,7 @@ function App() {
       <Link to='/rateService'>
         <button>Calificar</button>
       </Link>
- */}    </div>
+    </div>
   );
 }
 
