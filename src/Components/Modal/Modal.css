@@ -1,20 +1,29 @@
 .modal{
     position: fixed;
-    top: 60%;
-    border-radius: 40px;
+    top: 61%;
+    width:100%;
 }
 
+.modal-content {
+    border: none;
+    border-top-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+}
+.modal-dialog{
+    margin:0;
+    border:none;
+}
 .modal-body{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 150px;
     border-radius: 40px;
+    border: 3px solid red;
 }
 
 .modal-header{
     border: 0;
-    border-radius: 40px;
 }
 
 .modal-header button{

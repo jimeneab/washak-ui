@@ -12,8 +12,7 @@ import Hatchback from "../../Components/Hatchback";
 import Pickup from "../../Components/Pickup";
 import Van from "../../Components/Van";
 import { motion } from "framer-motion";
-import "./RegisterCar.css";
-import './RegisterCar.css'
+import "./RegisterCar.css"
 
 function RegisterCar() {
     const [current, setCurrent] = useState("");
@@ -50,7 +49,7 @@ function RegisterCar() {
     }
 
   return (
-    <div className='row justify-content-center register'>
+    <div className='register'>
       <section className='bgimg-1'>
         <NavBar />
         <h1 className='title mx-4'>Añade un vehículo</h1>
@@ -59,7 +58,7 @@ function RegisterCar() {
           <motion.div
             className='slider-types d-flex'
             drag='x'
-            dragConstraints={{ right: 0, left: -(widthTypes + 15) }}>
+            dragConstraints={{ right: 0, left: -(widthTypes + 18) }}>
             <input
               type='radio'
               name='vehiculo'
