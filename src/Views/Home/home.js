@@ -63,8 +63,14 @@ const Home = () => {
         <form className="home-vehicles">
           <motion.div ref={sliderVehicles} className="slider-container ps-4">
             <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
-              {myCars.map((_, index) => 
-                <SmallCard key={index} />
+              {myCars.map((car, index) => {
+                const {marca, modelo} = car
+                return (
+                  <SmallCard key={index} 
+                  brand={marca}
+                  model={modelo}/>
+                )
+              }
               )}
             </motion.div>
           </motion.div>

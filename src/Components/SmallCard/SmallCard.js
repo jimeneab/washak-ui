@@ -6,7 +6,7 @@ function SmallCard({ type, brand, model }){
   return(
     <div className="small-card me-4">
       <p className="small-info">
-        VW{brand} • 2015{model}
+        {brand} • {model}
       </p>
       <img src={jeep} alt="tipo de vehículo" className="small-img" />
     </div>
