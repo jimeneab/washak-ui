@@ -7,7 +7,6 @@ import { MoreVertical } from 'react-feather';
 import DatePicker from 'react-datepicker'
 import { subDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
-import api from '../../lib/api';
 import './index.css';
 import axios from 'axios';
 
@@ -17,10 +16,21 @@ const PickDate = () => {
     const [startDate, setStartDate] = useState(new Date())
     const [dateAndHour, setDateAndHour] = useState({})
 
+    const userId = window.localStorage.getItem('user')
+    const token = window.localStorage.getItem('token')
+    const config = {headers: {authorization:`${token}`}}
+
     const saveHandlerDate = async () => {
-        const result = await api.saveDate(dateAndHour)
-        console.log(result)
+        axios.post(`http://localhost:4000/services/save/${userId}`, dateAndHour, config)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(e => {
+            console.log(e)
+        })
     }
+
+
 
     const monthsConfig = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 

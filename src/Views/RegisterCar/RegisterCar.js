@@ -2,7 +2,7 @@ import { Input } from 'reactstrap'
 import {Navigate} from 'react-router-dom'
 import React from 'react'
 import { useState } from 'react'
-import api from '../../../src/lib/api'
+import axios from 'axios';
 import Button from '../../Components/Button/Button'
 import { ArrowLeft } from 'react-feather'
 import './RegisterCar.css'
@@ -17,14 +17,22 @@ function RegisterCar() {
         return <Navigate to="/login" replace />;
     }
 
+    const userId = window.localStorage.getItem('user')
+    const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
+
     const formHandler = event => {
         const value = event.target.value
         const property = event.target.name
         setNewCars({ ...newCars, [property]: value })
     }
     const saveHandler = async () => {
-        const result = await api.saveCars(newCars)
-        console.log(result)
+        axios.post(`http://localhost:4000/cars/${userId}`, newCars, config)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(e => {
+            console.log(e)
+        })
     }
 
 
