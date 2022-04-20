@@ -13,7 +13,6 @@ const Home = () => {
   const navigate = useNavigate();
   
   //vehicles cards 
-  const smallCards = Array(4).fill(1)
   const [widthVehicles, setWidthVehicles] = useState(0)
   const sliderVehicles = useRef()
   
@@ -64,7 +63,7 @@ if(!myCars.length){
         <form className="home-vehicles">
           <motion.div ref={sliderVehicles} className="slider-container ps-4">
             <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
-              {smallCards.map((_, index) => 
+              {myCars.map((_, index) => 
                 <SmallCard key={index} />
               )}
             </motion.div>

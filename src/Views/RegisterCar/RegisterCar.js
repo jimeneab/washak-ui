@@ -1,5 +1,5 @@
 import { Input } from "reactstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import Button from "../../Components/Button/Button";
@@ -12,6 +12,7 @@ import Hatchback from "../../Components/Hatchback";
 import Pickup from "../../Components/Pickup";
 import Van from "../../Components/Van";
 import { motion } from "framer-motion";
+import ModalComponent from "../../Components/Modal/Modal"
 import "./RegisterCar.css";
 import './RegisterCar.css'
 
@@ -19,15 +20,21 @@ function RegisterCar() {
     const [current, setCurrent] = useState("");
     const [newCars, setNewCars] = useState({});
     const [widthTypes, setWidthTypes] = useState(0);
+    const [token, setToken] = useState(null);
+    const [isShowModal,setIsShowModal] = useState(false);
     const sliderTypes = useRef();
     const navigate = useNavigate()
-    const token = localStorage.getItem("token")
     const userId = window.localStorage.getItem('user')
     const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
     
     
 
     useEffect(() => {
+      const token = window.localStorage.getItem('token')
+      if (!token) {
+        setToken(token)
+        return <Navigate to="/login" replace />;
+      }  
         setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
         const redirectFunction = () => navigate('/login')
         if (!token) {
@@ -35,7 +42,6 @@ function RegisterCar() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate]);
-
 
     const formHandler = event => {
         const value = event.target.value
@@ -46,6 +52,7 @@ function RegisterCar() {
     const saveHandler = async () => {
         axios.post(`http://localhost:4000/cars/${userId}`, newCars, config)
         .then(res => {
+            setIsShowModal(true)
             console.log(res)
         })
         .catch(e => {
@@ -56,6 +63,7 @@ function RegisterCar() {
   return (
     <div className='row justify-content-center register'>
       <section className='bgimg-1'>
+        <ModalComponent isShowModal={isShowModal} content='Vehiculo guardado' isShownFooter={false} setIsShowModal={setIsShowModal}/>
         <NavBar />
         <h1 className='title mx-4'>Añade un vehículo</h1>
         <h2 className='subtitle mx-4'>Tipo de vehículo</h2>
