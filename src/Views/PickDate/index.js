@@ -1,4 +1,5 @@
-import React, { useState, forwardRef } from 'react'
+import React, { useState, forwardRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import NavBar from '../../Components/NavBar/NavBar';
 import TimeButton from '../../Components/TimeButton/TimeButton';
@@ -15,10 +16,19 @@ const PickDate = () => {
 
     const [startDate, setStartDate] = useState(new Date())
     const [dateAndHour, setDateAndHour] = useState({})
-
     const userId = window.localStorage.getItem('user')
     const token = window.localStorage.getItem('token')
     const config = {headers: {authorization:`${token}`}}
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        // setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
+        const redirectFunction = () => navigate('/login')
+        if (!token) {
+            redirectFunction()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navigate]);
 
     const saveHandlerDate = async () => {
         axios.post(`http://localhost:4000/services/save/${userId}`, dateAndHour, config)
@@ -33,7 +43,6 @@ const PickDate = () => {
 
 
     const monthsConfig = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-
     const DateInput = forwardRef(({ value, onClick }, ref) => (
         <div className="date-input d-flex align-items-center justify-content-center position-relative" onClick={onClick} ref={ref}>
             <div style={{ fontSize: 40 }}>
