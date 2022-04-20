@@ -10,6 +10,7 @@ import Button from "../../Components/Button/Button"
 
 const Home = () => {
   const [myCars,setMyCars] = useState([])
+  const [token,setToken] = useState(null)
   const userId = localStorage.getItem('user')
   const navigate = useNavigate();
 
@@ -26,6 +27,9 @@ const Home = () => {
   const getMyCars = () => {
     axios.get(`http://localhost:4000/cars/cars/${userId}`)
     .then(res => {
+      if(!res.data.allCars.length){
+        navigate('/perfil')
+       }
       setMyCars(res.data.allCars)
     })
     .catch(e =>{
@@ -35,19 +39,16 @@ const Home = () => {
 
   
   useEffect(() => {
+    const token = localStorage.getItem('token')
+        if (!token) {
+          setToken(token)
+            return <Navigate to="/login" replace />;
+        }
     getMyCars()
     setWidthVehicles(sliderVehicles.current.scrollWidth - sliderVehicles.current.offsetWidth)
     setWidthServices(sliderServices.current.scrollWidth - sliderVehicles.current.offsetWidth)
-    let token = localStorage.getItem('token')
-        if (!token) {
-            return <Navigate to="/login" replace />;
-        }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  
-if(!myCars.length){
- navigate('/perfil')
-}
 
   return(
     <div className="bgimg-1 home">
