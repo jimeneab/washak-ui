@@ -2,41 +2,47 @@
     height: 100vh;
 }
 
-.principal-text{
-    color: #003366;
-    font-family: 'Ubuntu';
-    font-style: italic;
-    font-weight: 70px;
-    font-size: 30px;
-    margin: 3rem;
-}
-
-.secondary-text{
-    color: #003366;
-    font-family: 'Ubuntu';
-    font-style: italic;
-    font-weight: 70px;
-    font-size: 25px;
-    margin-bottom: 3rem;
-}
-
 .registerCar-input {
-    width: 80%;
-    margin: 10px auto 5px auto;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
     text-align: left;
-    background-color: white;
-    padding: 5px 0;
+    background-color: #f3f3f3;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
-.registerCar-footer{
-    margin-top: 9rem;
+.registerCar-input::placeholder{
+    font-family: Oxygen;
+    color:#003366;
 }
 
-.button-registerCar{
-    width: 20%;
-    height: 3rem;
-    border-radius: 10%;
+.registerCar-input:focus{
+    background-color: #f3f3f3;
+    outline: transparent;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
+.type-button {
+    background-color: #f3f3f3;
+    color:#003366;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 1.5rem;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    transition: background-color 0.25s;
+    height: 80px;
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
 
+.type-button.active{
+    background-color: #003366;
+}
+
+.hide-radio {
+    display: none;
+}
