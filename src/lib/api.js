@@ -42,7 +42,7 @@ export default {
     return await response.json()
   },
   saveDate: async dateData => {
-    let response = await fetch(`${BASE_URL}/`, {
+    let response = await fetch(`${BASE_URL}/services`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

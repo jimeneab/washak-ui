@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import Register from "./Views/Register/register"
-import Home from "./Views/Home/home"
 import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
 import Login from './Views/Login/Login';
@@ -17,6 +16,7 @@ import Landing from './Views/Landing/Landing';
 import Historial from './Views/Historial/Historial'
 import Progress from './Views/Progress/Progress';
 import RateService from './Views/RateService/RateService';
+import Home from './Views/Home/home';
 
 
 function App() {

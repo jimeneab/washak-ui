@@ -1,7 +1,7 @@
 import { Input } from "reactstrap";
 import { Navigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
-import api from "../../../src/lib/api";
+import axios from 'axios';
 import Button from "../../Components/Button/Button";
 import NavBar from "../../Components/NavBar/NavBar";
 import Crossover from "../../Components/Crossover";
@@ -13,35 +13,44 @@ import Pickup from "../../Components/Pickup";
 import Van from "../../Components/Van";
 import { motion } from "framer-motion";
 import "./RegisterCar.css";
+import './RegisterCar.css'
 
 function RegisterCar() {
-  const [current, setCurrent] = useState("");
-  const [newCars, setNewCars] = useState({});
-  const [widthTypes, setWidthTypes] = useState(0);
-  const sliderTypes = useRef();
+    const [current, setCurrent] = useState("");
+    const [newCars, setNewCars] = useState({});
+    const [widthTypes, setWidthTypes] = useState(0);
+    const sliderTypes = useRef();
+  
+    useEffect(() => {
+        setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-  let token = localStorage.getItem("token");
-  console.log(token);
+    let token = localStorage.getItem("token");
+    console.log(token);
 
-  useEffect(() => {
-    setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (!token) {
+   /*  if (!token) {
         return <Navigate to="/login" replace />;
-    }
+    } */
 
-  const formHandler = (event) => {
-    const value = event.target.value;
-    const property = event.target.name;
-    setCurrent(event.target.value);
-    setNewCars({ ...newCars, [property]: value });
-  };
-  const saveHandler = async () => {
-    const result = await api.saveCars(newCars);
-    console.log(result);
-  };
+    const userId = window.localStorage.getItem('user')
+    const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
+
+    const formHandler = event => {
+        const value = event.target.value
+        const property = event.target.name
+        setCurrent(event.target.value);
+        setNewCars({ ...newCars, [property]: value })
+    }
+    const saveHandler = async () => {
+        axios.post(`http://localhost:4000/cars/${userId}`, newCars, config)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    }
 
   return (
     <div className='row justify-content-center register'>
@@ -177,7 +186,7 @@ function RegisterCar() {
           </motion.div>
         </motion.div>
         <h2 className='subtitle mx-4 mt-4'>Datos del vehículo</h2>
-        <div className='input mx-4'>
+        <div className='input mx-4 py-2'>
           <Input
             onChange={formHandler}
             type='text'
