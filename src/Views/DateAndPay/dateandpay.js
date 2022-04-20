@@ -26,7 +26,7 @@ const DateAndPay = () => {
                     </p>
                 </div>
                 <div className='d-flex'>
-                    <img src={carFront} style={{width:35}} />
+                    <img src={carFront} style={{width:35}}  />
                     <p>
                         <b className='ms-4'>Vehículo: </b> Jeep • placa
                     </p>

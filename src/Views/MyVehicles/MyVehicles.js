@@ -9,12 +9,12 @@ import Button from "../../Components/Button/Button"
 function MyVehicles() {
   
   const [carData, setCarData] = useState()
-  
   const navigate = useNavigate()
   
   useEffect(() => {
     const token = localStorage.getItem('token')
     const userId = localStorage.getItem('user')
+
     axios.get(`http://localhost:4000/cars/cars/${userId}`)
       .then(res => {
         setCarData(res.data.allCars)

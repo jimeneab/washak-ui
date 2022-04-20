@@ -10,13 +10,17 @@ import logo from "../../Images/logo.svg"
 
 const Login = () => {
 const navigate = useNavigate()
+const redirectFunction = () => navigate('/login')
+
+    if (!token) {
+        redirectFunction()
+    }
+    
 const [loginData, setLoginData]= useState({email: "", password: ""})
 const [error, setError] = useState(null)
+const token = localStorage.getItem('token')
 
-let token = localStorage.getItem('token')
-        if (token) {
-            return <Navigate to="/home" replace />;
-        }
+
 
 const postLogin = () => {
     axios.post('http://localhost:4000/auth/login', loginData)
