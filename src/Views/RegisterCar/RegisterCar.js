@@ -20,18 +20,15 @@ function RegisterCar() {
     const [newCars, setNewCars] = useState({});
     const [widthTypes, setWidthTypes] = useState(0);
     const sliderTypes = useRef();
-  
+    
     useEffect(() => {
         setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
+        let token = localStorage.getItem("token");
+        if (!token) {
+          return <Navigate to="/login" replace />;
+        }  
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    let token = localStorage.getItem("token");
-    console.log(token);
-
-   /*  if (!token) {
-        return <Navigate to="/login" replace />;
-    } */
 
     const userId = window.localStorage.getItem('user')
     const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
