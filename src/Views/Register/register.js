@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { Lock, Mail, User } from "react-feather";
 import axios from "axios";
 import logoMedium from "../../Images/logo-medium.svg"
-import {useNavigate} from 'react-router-dom'
 
 
 const Register = () => {
@@ -15,8 +14,6 @@ const Register = () => {
     const [newUser, setNewUser] = useState({})
     const [success, setSuccess] = useState(null)
     const [error, setError] = useState(null)
-
-    const navigate = useNavigate()
 
     const formHandlerUser = event => {
         const name = event.target.name
@@ -29,8 +26,7 @@ const Register = () => {
         axios.post(`http://localhost:4000/user`, newUser)
         .then(res => {
             if(res.status === 200){
-                setSuccess(200)
-                navigate("/")
+                setSuccess(true)
             }
         })
         .catch(err => {

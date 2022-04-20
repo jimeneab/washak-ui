@@ -1,5 +1,5 @@
 import { Input } from "reactstrap";
-import { Navigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import Button from "../../Components/Button/Button";
@@ -12,25 +12,36 @@ import Hatchback from "../../Components/Hatchback";
 import Pickup from "../../Components/Pickup";
 import Van from "../../Components/Van";
 import { motion } from "framer-motion";
-import "./RegisterCar.css"
+import ModalComponent from "../../Components/Modal/Modal"
+import "./RegisterCar.css";
+import './RegisterCar.css'
 
 function RegisterCar() {
     const [current, setCurrent] = useState("");
     const [newCars, setNewCars] = useState({});
     const [widthTypes, setWidthTypes] = useState(0);
+    const [token, setToken] = useState(null);
+    const [isShowModal,setIsShowModal] = useState(false);
     const sliderTypes = useRef();
-    
-    useEffect(() => {
-        setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
-        let token = localStorage.getItem("token");
-        if (!token) {
-          return <Navigate to="/login" replace />;
-        }  
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+    const navigate = useNavigate()
     const userId = window.localStorage.getItem('user')
     const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
+    
+    
+
+    useEffect(() => {
+      const token = window.localStorage.getItem('token')
+      if (!token) {
+        setToken(token)
+        return <Navigate to="/login" replace />;
+      }  
+        setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
+        const redirectFunction = () => navigate('/login')
+        if (!token) {
+            redirectFunction()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navigate]);
 
     const formHandler = event => {
         const value = event.target.value
@@ -41,6 +52,7 @@ function RegisterCar() {
     const saveHandler = async () => {
         axios.post(`http://localhost:4000/cars/${userId}`, newCars, config)
         .then(res => {
+            setIsShowModal(true)
             console.log(res)
         })
         .catch(e => {
@@ -51,6 +63,7 @@ function RegisterCar() {
   return (
     <div className='register'>
       <section className='bgimg-1'>
+        <ModalComponent isShowModal={isShowModal} content='Vehiculo guardado' isShownFooter={false} setIsShowModal={setIsShowModal}/>
         <NavBar />
         <h1 className='title mx-4'>Añade un vehículo</h1>
         <h2 className='subtitle mx-4'>Tipo de vehículo</h2>
@@ -70,11 +83,11 @@ function RegisterCar() {
             <label
               htmlFor='motocicleta'
               className={`type-button ${
-                current == "motocicleta" ? "active" : ""
+                current === "motocicleta" ? "active" : ""
               }`.trimEnd()}>
               <Moto
                 width={70}
-                stroke={current == "motocicleta" ? "#f3f3f3" : "#036"}
+                stroke={current === "motocicleta" ? "#f3f3f3" : "#036"}
               />
             </label>
             <input
@@ -88,11 +101,11 @@ function RegisterCar() {
             <label
               htmlFor='sedan'
               className={`ms-4 type-button ${
-                current == "sedan" ? "active" : ""
+                current === "sedan" ? "active" : ""
               }`.trimEnd()}>
               <Sedan
                 width={90}
-                stroke={current == "sedan" ? "#f3f3f3" : "#036"}
+                stroke={current === "sedan" ? "#f3f3f3" : "#036"}
               />
             </label>
             <input
@@ -106,11 +119,11 @@ function RegisterCar() {
             <label
               htmlFor='hatchback'
               className={`ms-4 type-button ${
-                current == "hatchback" ? "active" : ""
+                current === "hatchback" ? "active" : ""
               }`.trimEnd()}>
               <Hatchback
                 width={90}
-                stroke={current == "hatchback" ? "#f3f3f3" : "#036"}
+                stroke={current === "hatchback" ? "#f3f3f3" : "#036"}
               />
             </label>
             <input
@@ -124,11 +137,11 @@ function RegisterCar() {
             <label
               htmlFor='crossover'
               className={`ms-4 type-button ${
-                current == "crossover" ? "active" : ""
+                current === "crossover" ? "active" : ""
               }`.trimEnd()}>
               <Crossover
                 width={90}
-                stroke={current == "crossover" ? "#f3f3f3" : "#036"}
+                stroke={current === "crossover" ? "#f3f3f3" : "#036"}
               />
             </label>
             <input
@@ -142,9 +155,9 @@ function RegisterCar() {
             <label
               htmlFor='suv'
               className={`ms-4 type-button ${
-                current == "suv" ? "active" : ""
+                current === "suv" ? "active" : ""
               }`.trimEnd()}>
-              <Suv width={90} stroke={current == "suv" ? "#f3f3f3" : "#036"} />
+              <Suv width={90} stroke={current === "suv" ? "#f3f3f3" : "#036"} />
             </label>
             <input
               type='radio'
@@ -157,11 +170,11 @@ function RegisterCar() {
             <label
               htmlFor='pickup'
               className={`ms-4 type-button ${
-                current == "pickup" ? "active" : ""
+                current === "pickup" ? "active" : ""
               }`.trimEnd()}>
               <Pickup
                 width={90}
-                stroke={current == "pickup" ? "#f3f3f3" : "#036"}
+                stroke={current === "pickup" ? "#f3f3f3" : "#036"}
               />
             </label>
             <input
@@ -175,9 +188,9 @@ function RegisterCar() {
             <label
               htmlFor='van'
               className={`ms-4 type-button ${
-                current == "van" ? "active" : ""
+                current === "van" ? "active" : ""
               }`.trimEnd()}>
-              <Van width={90} stroke={current == "van" ? "#f3f3f3" : "#036"} />
+              <Van width={90} stroke={current === "van" ? "#f3f3f3" : "#036"} />
             </label>
           </motion.div>
         </motion.div>

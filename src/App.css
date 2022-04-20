@@ -41,7 +41,7 @@
 .bgimg-2{
   background-image: url(./Images/Background-2.png);
   /* background-repeat: no-repeat; */
-  background-attachment: fixed;
+  background-attachment: fixed; 
   background-size: cover;
   height: 100vh;
 }
