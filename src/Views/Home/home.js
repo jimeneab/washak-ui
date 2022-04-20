@@ -48,10 +48,10 @@ const Home = () => {
     }
   }, [navigate])
   
-if(!myCars.length){
- navigate('/perfil')
-}
-
+  if(!myCars.length){
+   navigate('/perfil')
+  }
+  
   return(
     <div className="bgimg-1 home">
       <NavBar isHome="true"/>        
