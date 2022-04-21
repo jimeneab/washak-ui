@@ -1,16 +1,17 @@
 import React from "react";
 import { User, Facebook, Instagram, Twitter } from 'react-feather'
 import { Link } from "react-router-dom";
+import logo from "../../Images/logo-white.png"
 import './Landing.css'
 
 const Landing = () => {
     return (
         <div className="landing-page">
             <section className="landing-hero">
-                <h1>Washak</h1>
+                <img className="logo-landing" src={logo} alt="washak logo" />
                 <div>
                     <Link to='/login'>
-                        <button>Entrar!</button>
+                        <button>Entrar</button>
                     </Link>
                 </div>
             </section>

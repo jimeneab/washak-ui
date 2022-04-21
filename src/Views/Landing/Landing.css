@@ -1,12 +1,19 @@
 .landing-hero{
-    background-image: url('https://indiepropub.com/wp-content/uploads/2021/09/Hombre-lavando-auto..-678x381.png');
+    background-image: url('../../Images//car-wash-detailing-station.jpg');
     background-color: #cccccc;
-    background-size: cover;
+    background-size: cover;    
     height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.logo-landing{
+    position:relative;
+    left: 25px;
+    width:90%;
+    
 }
 
 .landing-hero h1{
