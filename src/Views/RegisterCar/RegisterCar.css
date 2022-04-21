@@ -2,7 +2,7 @@
     height: 100vh;
 }
 
-.registerCar-input {
+.registerCar-input.form-control {
     width: 100%;
     border-radius: 12px;
     border: none;
@@ -13,12 +13,12 @@
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
-.registerCar-input::placeholder{
+.registerCar-input.form-control::placeholder{
     font-family: Oxygen;
     color:#003366;
 }
 
-.registerCar-input:focus{
+.registerCar-input.form-control:focus{
     background-color: #f3f3f3;
     outline: transparent;
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);

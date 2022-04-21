@@ -1,20 +1,30 @@
 .modal{
-    position: fixed;
-    top: 60%;
-    border-radius: 40px;
+    width:100%;
 }
 
+.modal-content {
+    border: none;
+    border-top-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.modal-dialog{
+    margin:0;
+    border:none;
+}
 .modal-body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
-    border-radius: 40px;
+    font-family: Oxygen;
+    font-weight: 700;
+    font-size: 26px;
+    color:#036;
 }
 
 .modal-header{
     border: 0;
-    border-radius: 40px;
 }
 
 .modal-header button{
@@ -25,17 +35,103 @@
 
 .modal-footer{
     border: 0;
-    border-radius: 40px;
     display: flex;
     justify-content: space-around;
 }
 
 .button-cancel{
-    background-color: #FF9933;
+    background-color: red;
     border: none;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    width:50px;
+    height: 50px;
+}
+
+.button-cancel:focus, .button-cancel:active {
+    background-color: #BA3030;
+    outline: transparent;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
 .button-confirm{
-    background-color: #9933CC;
+    background-color: #67DB30;
     border: none;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+    width:50px;
+    height: 50px;
+}
+
+.button-confirm:focus, .button-confirm:active {
+    background-color: green;
+    outline: transparent;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
+}
+.modal-user-info {
+    width: 94vw;
+    justify-content: space-between;
+    font-size: 22px;
+    font-family: Oxygen;
+    font-weight: 700;
+    color:#036;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    width: 100px;
+    height: 100px;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 25%);
+}
+
+.profile-car {
+    width: 80px;
+}
+.profile-social {
+    width:100%;
+    justify-content: space-between;
+    font-family: Oxygen;
+    font-weight: 700;
+}
+
+.profile-social a {
+    color:#036;
+}
+
+.profile-settings {
+    width: 100%;
+    text-align: left;
+    list-style: none;
+    font-size: 16px;
+    font-family: Oxygen;
+    font-weight: 700;
+    color: #036;
+}
+
+.button-info {
+    font-size: 18px;
+    margin-top:10px;
+    margin-bottom: 30px;
+}
+
+.profile-buttons-container {
+    width: 100%;
+}
+
+.profile-body {
+    flex-direction: column;
+}
+
+.profile-button.history {
+    width: 74%;
+    height: 70px;
+}
+
+.link-profile {
+    text-decoration: none;
+    color:#036;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
