@@ -63,7 +63,7 @@ function RegisterCar() {
   return (
     <div className='register'>
       <section className='bgimg-1'>
-        <ModalComponent isShowModal={isShowModal} content='Vehiculo guardado' isShownFooter={false} setIsShowModal={setIsShowModal}/>
+        <ModalComponent isShowModal={isShowModal} content='Vehículo guardado' isShownFooter={false} setIsShowModal={setIsShowModal}/>
         <NavBar />
         <h1 className='title mx-4'>Añade un vehículo</h1>
         <h2 className='subtitle mx-4'>Tipo de vehículo</h2>
