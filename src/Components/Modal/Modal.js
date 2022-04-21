@@ -5,6 +5,10 @@ import carFront from "../../Images/car-front.svg"
 import { Link } from "react-router-dom"
 import './Modal.css'
 
+function logOut () {
+    localStorage.clear()
+}
+
 const ModalComponent = ({
     isShowModal, 
     setIsShowModal,
@@ -76,7 +80,7 @@ const ModalComponent = ({
                         <Instagram color="#036" className="me-2" />
                         <Twitter color="#036" />
                     </ul>
-                    <a href="/">Cerrar sesión <LogOut color="#036" className="ms-2" /></a>
+                    <a href="/login" onClick={logOut}>Cerrar sesión <LogOut color="#036" className="ms-2" /></a>
                 </div>
             </ModalFooter>
        </Modal>

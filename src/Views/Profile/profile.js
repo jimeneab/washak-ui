@@ -16,20 +16,20 @@ const Profile = () => {
     const [success, setSuccess] = useState(null)
     const [error, setError] = useState(null)
     const userId = localStorage.getItem('user')
+    const token = localStorage.getItem('token');
     const navigate = useNavigate()
+    const redirectFunction = () => navigate('/login')
     
     
     useEffect(() => {
         getUserData()
-        const token = localStorage.getItem('token');
-        const redirectFunction = () => navigate('/login')
-        if (!token) {
-            redirectFunction()
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate])
-
     
+    
+    if (!token) {
+        redirectFunction()
+    }
 
     const profileData = event => {
         const name = event.target.name
@@ -39,28 +39,29 @@ const Profile = () => {
 
     const getUserData = () => {
         axios.get(`http://localhost:4000/user/${userId}`)
-        .then(res => {
-            setProfile({...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email})
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => {
+                setProfile({ ...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-    const saveHandlerProfile =  () => {
+    const saveHandlerProfile = () => {
         axios.patch(`http://localhost:4000/user/${userId}`, profile)
-        .then(res => {
-            if(res.data){
-                setSuccess(true)
-            }
-        })
-        .catch(err =>{
-            setError(err)
-        })
+            .then(res => {
+                if (res.data) {
+                    setSuccess(true)
+                }
+            })
+            .catch(err => {
+                setError(err)
+            })
 
     }
 
     return (
+
         <section className="profile bgimg-1">
             <div className="profile-header">
                 <div className="complete-user-img">
@@ -93,7 +94,7 @@ const Profile = () => {
             </div>
             <div className="profile-footer mx-4">
                 <Button width={'large'} color="primary" onClick={saveHandlerProfile}> Guardar </Button>
-                <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link>
+                {/* <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link> */}
             </div>
         </section>
     )

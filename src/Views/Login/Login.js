@@ -45,7 +45,9 @@ const handlePasswordInput = (e) => {
         <section className="login bgimg-2 px-4">
             <div className="login-header">
                 <div>
-                    <img src={logo} className="logo" alt="washak logo" />
+                    <Link to='/'>
+                        <img src={logo} className="logo" alt="washak logo" />
+                    </Link>
                 </div>
             </div>
             <div className="login-body"> 
