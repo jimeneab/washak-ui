@@ -61,13 +61,6 @@ const Profile = () => {
 
         <section className="profile bgimg-1">
             <div className="profile-header">
-                <div>
-                    <nav className="navbar navbar-expand-lg">
-                        <div class="container">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                        </div>
-                    </nav>
-                </div>
                 <div className="complete-user-img">
                     <div className="rounded-circle user-circle">
                         <img src={avatar} alt="" />
@@ -98,7 +91,7 @@ const Profile = () => {
             </div>
             <div className="profile-footer mx-4">
                 <Button width={'large'} color="primary" onClick={saveHandlerProfile}> Guardar </Button>
-                <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link>
+                <Link className="link-complete" to="/home">Completar mi perfil mas tarde</Link>
             </div>
         </section>
     )
