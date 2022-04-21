@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import Register from "./Views/Register/register"
@@ -22,15 +22,15 @@ import Home from './Views/Home/home';
 function App() {
   const [isShowModal, setIsShowModal] = useState(false)
 
-  
-    
+
+
   const toggleModal = () => {
-      setIsShowModal(!isShowModal)
+    setIsShowModal(!isShowModal)
   }
 
   return (
     <div className="App">
-      <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal}/>
+      <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/' element={<Landing />} />
@@ -48,8 +48,8 @@ function App() {
         <Route path='/workInProgress' element={<Progress />} />
         <Route path='/rateService' element={<RateService />} />
       </Routes>
-      
-       <Link to='/'>
+
+      <Link to='/'>
         <button>Landing</button>
       </Link>
       <Link to='/home'>
