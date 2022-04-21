@@ -21,7 +21,7 @@ const Profile = () => {
 
     useEffect(() => {
         getUserData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (!token) {
@@ -36,30 +36,38 @@ const Profile = () => {
 
     const getUserData = () => {
         axios.get(`http://localhost:4000/user/${userId}`)
-        .then(res => {
-            setProfile({...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email})
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => {
+                setProfile({ ...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-    const saveHandlerProfile =  () => {
+    const saveHandlerProfile = () => {
         axios.patch(`http://localhost:4000/user/${userId}`, profile)
-        .then(res => {
-            if(res.data){
-                setSuccess(true)
-            }
-        })
-        .catch(err =>{
-            setError(err)
-        })
+            .then(res => {
+                if (res.data) {
+                    setSuccess(true)
+                }
+            })
+            .catch(err => {
+                setError(err)
+            })
 
     }
 
     return (
+
         <section className="profile bgimg-1">
             <div className="profile-header">
+                <div>
+                    <nav className="navbar navbar-expand-lg">
+                        <div class="container">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </nav>
+                </div>
                 <div className="complete-user-img">
                     <div className="rounded-circle user-circle">
                         <img src={avatar} alt="" />
