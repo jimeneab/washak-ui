@@ -27,14 +27,14 @@ const ModalComponent = ({
                 </Button>
                 <div className="ms-4 modal-user-info d-flex align-items-center">
                     <p className="mb-0">Usuario</p>
-                    <div className='container-profile'>
+                    {/* <div className='container-profile'>
                         <img
                             src='https://picsum.photos/seed/picsum/200/200'
                             alt='user img'
                             className='rounded-circle user-pic'
                         />
                         <MoreVertical className='more' />
-                    </div>
+                    </div> */}
                 </div>
             </ ModalHeader>
             <ModalBody className="profile-body">

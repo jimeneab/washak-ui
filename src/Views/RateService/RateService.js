@@ -1,10 +1,10 @@
 import { React, useState } from "react"
-import {Navigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import NavBar from "../../Components/NavBar/NavBar"
 import Button from "../../Components/Button/Button"
 import "./RateService.css"
 import { Star } from "react-feather"
-import api from "../../lib/api"
+import axios from "axios"
 
 const colors = {
   yellow: "#EFD65B",
@@ -17,13 +17,15 @@ function RateService({ service, idService}){
   const [currentValue, setCurrentValue] = useState(0)
   const [hoverValue, setHoverValue] = useState(undefined)
   const [inputRateObj, setInputRateObj] = useState({})
-
+  const navigate = useNavigate
   let token = localStorage.getItem('token');
-    console.log(token)
+  const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
+  const userId = window.localStorage.getItem('user')
 
-    if (!token) {
-        return <Navigate to="/login" replace />;
-    }
+  const redirectFunction = () => navigate('/login')
+        if (!token) {
+            redirectFunction()
+        }
 
   const handleClick = value => setCurrentValue(value)
 
@@ -38,8 +40,13 @@ function RateService({ service, idService}){
   }
 
   const buttonRate = async () => {
-    const result = await api.saveRateService(inputRateObj)
-    console.log(result)
+    axios.post(`http:localhost:4000/service/${userId}`, inputRateObj, config)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(e => {
+      console.log(e)
+    })
   }
   
   return(

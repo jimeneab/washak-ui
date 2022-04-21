@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios"
 import Button from "../../Components/Button/Button";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './profile.css'
 import { Mail, User, Plus } from "react-feather";
@@ -15,18 +15,21 @@ const Profile = () => {
     const [profile, setProfile] = useState({})
     const [success, setSuccess] = useState(null)
     const [error, setError] = useState(null)
-
-    const token = localStorage.getItem('token');
     const userId = localStorage.getItem('user')
-
+    const navigate = useNavigate()
+    
+    
     useEffect(() => {
         getUserData()
+        const token = localStorage.getItem('token');
+        const redirectFunction = () => navigate('/login')
+        if (!token) {
+            redirectFunction()
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [navigate])
 
-    if (!token) {
-        return <Navigate to="/login" replace />;
-    }
+    
 
     const profileData = event => {
         const name = event.target.name
