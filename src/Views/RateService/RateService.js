@@ -40,7 +40,7 @@ function RateService({ service, idService}){
   }
 
   const buttonRate = async () => {
-    axios.post(`http:localhost:4000/service/${userId}`, inputRateObj, config)
+    axios.post(`https://washak-api.washak.xyz/service/${userId}`, inputRateObj, config)
     .then(res => {
       console.log(res)
     })

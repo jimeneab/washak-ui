@@ -19,7 +19,7 @@ let token = localStorage.getItem('token')
         }
 
 const postLogin = () => {
-    axios.post('http://localhost:4000/auth/login', loginData)
+    axios.post('https://washak-api.washak.xyz/auth/login', loginData)
     .then(res => {
         if(res.data){
             window.localStorage.setItem('token', res.data.token.token)

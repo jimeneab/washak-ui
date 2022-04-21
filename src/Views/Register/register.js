@@ -23,7 +23,7 @@ const Register = () => {
     }
 
     const saveHandlerUser = async () => {
-        axios.post(`http://localhost:4000/user`, newUser)
+        axios.post(`https://washak-api.washak.xyz/user`, newUser)
         .then(res => {
             if(res.status === 200){
                 setSuccess(true)

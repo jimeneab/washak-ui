@@ -21,7 +21,7 @@ function CardVehicles({ brand, model, color, licensePlate, carId }) {
   //TODO: agregar modal para confirmar eliminar
 
   const deleteCar = () => {
-    axios.delete(`http://localhost:4000/cars/${carId}`, config)
+    axios.delete(`https://washak-api.washak.xyz/cars/${carId}`, config)
     .then(res => {
       window.location.reload()
       console.log(res)

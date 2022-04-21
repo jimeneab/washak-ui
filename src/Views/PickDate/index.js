@@ -31,7 +31,7 @@ const PickDate = () => {
     }, [navigate]);
 
     const saveHandlerDate = async () => {
-        axios.post(`http://localhost:4000/services/save/${userId}`, dateAndHour, config)
+        axios.post(`https://washak-api.washak.xyz/services/save/${userId}`, dateAndHour, config)
         .then(res => {
             console.log(res)
         })

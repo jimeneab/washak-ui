@@ -38,7 +38,7 @@ const Profile = () => {
     }
 
     const getUserData = () => {
-        axios.get(`http://localhost:4000/user/${userId}`)
+        axios.get(`https://washak-api.washak.xyz/user/${userId}`)
             .then(res => {
                 setProfile({ ...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email })
             })
@@ -48,7 +48,7 @@ const Profile = () => {
     }
 
     const saveHandlerProfile = () => {
-        axios.patch(`http://localhost:4000/user/${userId}`, profile)
+        axios.patch(`https://washak-api.washak.xyz/user/${userId}`, profile)
             .then(res => {
                 if (res.data) {
                     setSuccess(true)

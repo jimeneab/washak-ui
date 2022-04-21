@@ -29,7 +29,7 @@ const Home = () => {
     const redirectFunction = () => navigate('/login')
     
     const getMyCars = () => {
-      axios.get(`http://localhost:4000/cars/cars/${userId}`)
+      axios.get(` https://washak-api.washak.xyz/cars/cars/${userId}`)
       .then(res => {
         if(!res.data.allCars.length){
           console.log(res.data.allCars.length, 'asklnd')

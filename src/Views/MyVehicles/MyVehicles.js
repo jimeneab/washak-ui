@@ -15,7 +15,7 @@ function MyVehicles() {
   useEffect(() => {
     const token = localStorage.getItem('token')
     const userId = localStorage.getItem('user')
-    axios.get(`http://localhost:4000/cars/cars/${userId}`)
+    axios.get(`https://washak-api.washak.xyz/cars/cars/${userId}`)
       .then(res => {
         setCarData(res.data.allCars)
       })
