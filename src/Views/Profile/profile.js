@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios"
 import Button from "../../Components/Button/Button";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './profile.css'
 import { Mail, User, Plus } from "react-feather";
@@ -15,17 +15,20 @@ const Profile = () => {
     const [profile, setProfile] = useState({})
     const [success, setSuccess] = useState(null)
     const [error, setError] = useState(null)
-
-    const token = localStorage.getItem('token');
     const userId = localStorage.getItem('user')
-
+    const token = localStorage.getItem('token');
+    const navigate = useNavigate()
+    const redirectFunction = () => navigate('/login')
+    
+    
     useEffect(() => {
         getUserData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
+    }, [navigate])
+    
+    
     if (!token) {
-        return <Navigate to="/login" replace />;
+        redirectFunction()
     }
 
     const profileData = event => {
@@ -35,7 +38,7 @@ const Profile = () => {
     }
 
     const getUserData = () => {
-        axios.get(`http://localhost:4000/user/${userId}`)
+        axios.get(`https://washak-api.washak.xyz/user/${userId}`)
             .then(res => {
                 setProfile({ ...profile, 'name': res.data?.User?.name, 'email': res.data?.User?.email })
             })
@@ -45,7 +48,7 @@ const Profile = () => {
     }
 
     const saveHandlerProfile = () => {
-        axios.patch(`http://localhost:4000/user/${userId}`, profile)
+        axios.patch(`https://washak-api.washak.xyz/user/${userId}`, profile)
             .then(res => {
                 if (res.data) {
                     setSuccess(true)
@@ -91,7 +94,11 @@ const Profile = () => {
             </div>
             <div className="profile-footer mx-4">
                 <Button width={'large'} color="primary" onClick={saveHandlerProfile}> Guardar </Button>
+<<<<<<< HEAD
                 <Link className="link-complete" to="/home">Completar mi perfil mas tarde</Link>
+=======
+                {/* <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link> */}
+>>>>>>> 2a547a42bb559627e7ca2dd39df9c2ed5c401783
             </div>
         </section>
     )

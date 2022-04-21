@@ -21,7 +21,7 @@ const AddPosition = () => {
     }
     
     const saveHandlerAddress = async () => {
-        axios.post(`http://localhost:4000/maps/${userId}`, address, config)
+        axios.post(`https://washak-api.washak.xyz/maps/${userId}`, address, config)
         .then(res => {
             console.log(res)
         })

@@ -15,7 +15,7 @@ function MyVehicles() {
   useEffect(() => {
     const token = localStorage.getItem('token')
     const userId = localStorage.getItem('user')
-    axios.get(`http://localhost:4000/cars/cars/${userId}`)
+    axios.get(`https://washak-api.washak.xyz/cars/cars/${userId}`)
       .then(res => {
         setCarData(res.data.allCars)
       })
@@ -37,9 +37,11 @@ function MyVehicles() {
       <section>
         <h1 className='title'>Mis Vehículos</h1>
         {carData  && carData.map((car, index) => {
+          console.log(car)
           const {marca, modelo, placa, color} = car
             return(
                 <CardVehicles
+                carId={car._id}
                 key={index}
                 brand={marca}
                 model={modelo}
@@ -48,7 +50,7 @@ function MyVehicles() {
               )
           })}
       </section>
-      <Button color="primary" width="large" ><Link to="/registerCar"> Añadir</Link></Button>
+      <Link to="/registerCar"><Button color="primary" width="large" >Añadir</Button></Link>
     </div>
   );
 }

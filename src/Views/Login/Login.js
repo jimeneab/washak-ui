@@ -19,7 +19,7 @@ let token = localStorage.getItem('token')
         }
 
 const postLogin = () => {
-    axios.post('http://localhost:4000/auth/login', loginData)
+    axios.post('https://washak-api.washak.xyz/auth/login', loginData)
     .then(res => {
         if(res.data){
             window.localStorage.setItem('token', res.data.token.token)
@@ -45,7 +45,9 @@ const handlePasswordInput = (e) => {
         <section className="login bgimg-2 px-4">
             <div className="login-header">
                 <div>
-                    <img src={logo} className="logo" alt="washak logo" />
+                    <Link to='/'>
+                        <img src={logo} className="logo" alt="washak logo" />
+                    </Link>
                 </div>
             </div>
             <div className="login-body"> 

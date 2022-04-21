@@ -1,5 +1,5 @@
 import { Input } from "reactstrap";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, Link } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import Button from "../../Components/Button/Button";
@@ -25,14 +25,14 @@ function RegisterCar() {
     const sliderTypes = useRef();
     const navigate = useNavigate()
     const userId = window.localStorage.getItem('user')
-    const config = {headers: {'Content-Type': 'application/json',authorization:`${token}`}}
+    const config = {headers: {authorization:`${token}`}}
     
     
 
     useEffect(() => {
       const token = window.localStorage.getItem('token')
+      setToken(token)
       if (!token) {
-        setToken(token)
         return <Navigate to="/login" replace />;
       }  
         setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
@@ -50,10 +50,9 @@ function RegisterCar() {
         setNewCars({ ...newCars, [property]: value })
     }
     const saveHandler = async () => {
-        axios.post(`http://localhost:4000/cars/${userId}`, newCars, config)
+        axios.post(`https://washak-api.washak.xyz/cars/${userId}`, newCars, config)
         .then(res => {
             setIsShowModal(true)
-            console.log(res)
         })
         .catch(e => {
             console.log(e)
@@ -63,7 +62,7 @@ function RegisterCar() {
   return (
     <div className='register'>
       <section className='bgimg-1'>
-        <ModalComponent isShowModal={isShowModal} content='Vehículo guardado' isShownFooter={false} setIsShowModal={setIsShowModal}/>
+        <ModalComponent isShowModal={isShowModal} content={<Link to='/home'>Agendar servicio</Link>} isShownFooter={false} setIsShowModal={setIsShowModal}/>
         <NavBar />
         <h1 className='title mx-4'>Añade un vehículo</h1>
         <h2 className='subtitle mx-4'>Tipo de vehículo</h2>
