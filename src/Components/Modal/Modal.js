@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import { X, Check, Settings, HelpCircle, Facebook, Instagram, Twitter, LogOut, Clock, Map, MoreVertical } from "react-feather";
 import carFront from "../../Images/car-front.svg"
+import { Link } from "react-router-dom"
 import './Modal.css'
 
 const ModalComponent = ({
@@ -39,9 +40,11 @@ const ModalComponent = ({
             <ModalBody className="profile-body">
                 <div className="profile-buttons-container d-flex justify-content-around">
                     <div className="d-flex align-items-center justify-content-center flex-column profile-button-container">
-                        <div className="profile-button">
-                            <img className="profile-car" src={carFront} alt="" />
-                        </div>
+                        <Link to="/myVehicles">
+                            <div className="profile-button">
+                                <img className="profile-car" src={carFront} alt="" />
+                            </div>
+                        </Link>
                         <p className="button-info">Mis Vehículos</p>
                     </div>
                     <div className="d-flex align-items-center flex-column profile-button-container">
@@ -51,9 +54,11 @@ const ModalComponent = ({
                         <p className="button-info">Mis Ubicaciones</p>
                     </div>
                 </div>
-                <div className="profile-button history button-info">
-                    <Clock className="me-4" color="#036" size={30} /> Historial de Servicios
-                </div>
+                <Link className="link-profile" to="/serviceHistory">
+                    <div className="profile-button history button-info">
+                        <Clock className="me-4" color="#036" size={30} /> Historial de Servicios
+                    </div>
+                </Link>
                 
             </ModalBody>
             <ModalFooter className="footer-profile border-top">

@@ -127,3 +127,11 @@
     width: 74%;
     height: 70px;
 }
+
+.link-profile {
+    text-decoration: none;
+    color:#036;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
