@@ -50,7 +50,7 @@ function RegisterCar() {
         setNewCars({ ...newCars, [property]: value })
     }
     const saveHandler = async () => {
-        axios.post(`http://localhost:4000/cars/save/${userId}`, newCars, config)
+        axios.post(`http://localhost:4000/cars/${userId}`, newCars, config)
         .then(res => {
             setIsShowModal(true)
         })
