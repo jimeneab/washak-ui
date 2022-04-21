@@ -31,7 +31,8 @@ const Home = () => {
     const getMyCars = () => {
       axios.get(`http://localhost:4000/cars/cars/${userId}`)
       .then(res => {
-        if(res.data.allCars.lenght){
+        if(!res.data.allCars.length){
+          console.log(res.data.allCars.length, 'asklnd')
           navigate('/perfil')
         }
         setMyCars(res.data.allCars)

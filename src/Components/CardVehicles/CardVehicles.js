@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "./CardVehicles.css";
 import jeep from "../../Images/jeep-min.svg";
 import { MoreVertical } from "react-feather";
@@ -9,13 +10,26 @@ import {
   DropdownToggle,
 } from "reactstrap";
 
-function CardVehicles({ brand, model, color, licensePlate }) {
+function CardVehicles({ brand, model, color, licensePlate, carId }) {
   const [dropdown, setDropdown] = useState(false);
+  const token = window.localStorage.getItem('token')
+  const config = {headers: {authorization:`${token}`}}
 
   //Dropdown
   const openDropdown = () => setDropdown(!dropdown);
 
-  //Modal
+  //TODO: agregar modal para confirmar eliminar
+
+  const deleteCar = () => {
+    axios.delete(`http://localhost:4000/cars/${carId}`, config)
+    .then(res => {
+      window.location.reload()
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   return (
     <div className='card-vehicle d-flex flex-column align-items-center'>
@@ -36,7 +50,7 @@ function CardVehicles({ brand, model, color, licensePlate }) {
           <DropdownMenu className='card-dmenu'>
             <DropdownItem className="card-ditem">Editar</DropdownItem>
             <hr />
-            <DropdownItem className="card-ditem">Eliminar</DropdownItem>
+            <DropdownItem className="card-ditem" onClick={deleteCar}>Eliminar</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </div>

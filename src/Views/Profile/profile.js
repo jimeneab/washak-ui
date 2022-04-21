@@ -91,7 +91,7 @@ const Profile = () => {
             </div>
             <div className="profile-footer mx-4">
                 <Button width={'large'} color="primary" onClick={saveHandlerProfile}> Guardar </Button>
-                <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link>
+                {/* <Link className="link-complete" to="/">Completar mi perfil mas tarde</Link> */}
             </div>
         </section>
     )
