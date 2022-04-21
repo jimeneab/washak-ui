@@ -61,13 +61,6 @@ const Profile = () => {
 
         <section className="profile bgimg-1">
             <div className="profile-header">
-                <div>
-                    <nav className="navbar navbar-expand-lg">
-                        <div class="container">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                        </div>
-                    </nav>
-                </div>
                 <div className="complete-user-img">
                     <div className="rounded-circle user-circle">
                         <img src={avatar} alt="" />
