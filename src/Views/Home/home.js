@@ -31,6 +31,9 @@ const Home = () => {
     const getMyCars = () => {
       axios.get(`http://localhost:4000/cars/cars/${userId}`)
       .then(res => {
+        if(res.data.allCars.lenght){
+          navigate('/perfil')
+        }
         setMyCars(res.data.allCars)
       })
       .catch(e =>{
@@ -47,10 +50,6 @@ const Home = () => {
         redirectFunction()
     }
   }, [navigate])
-  
-  if(!myCars.length){
-   navigate('/perfil')
-  }
   
   return(
     <div className="bgimg-1 home">
