@@ -36,7 +36,7 @@ function Historial() {
       <section className='mx-4'>
         <h1 className="title">Historial de servicios</h1>
         {cardHistory && cardHistory.map((card, index) => {
-            const {marca, modelo, packageWash, place, hour, month, day} = card
+            const {marca, modelo, packageWash, place, month, day} = card
             return (
               <CardHistory
               key={index}
@@ -44,8 +44,7 @@ function Historial() {
                 brand={marca} 
                 model={modelo}
                 location={place}
-                date={`${day}/${month}`}
-                time={hour} />
+                date={`${day}/${month}`} />
             )
           })
         }
