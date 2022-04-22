@@ -19,7 +19,7 @@ function Progress({ service, brand, location, date, time }) {
 
   return(
     <div className="bgimg-2">
-      <NavBar />
+      <NavBar type="progress" />
       <section className='mx-4'>
         <h1 className='title'>En proceso</h1>
         <div className="card-progress d-flex flex-column justify-content-center align-items-center">
