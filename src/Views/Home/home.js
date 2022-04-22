@@ -89,6 +89,7 @@ const Home = () => {
     }, config)
     .then(res => {
       console.log(res)
+      navigate('/fecha')
     })
     .catch(err => {
       console.log(err)
