@@ -7,6 +7,7 @@ import TimeInput from '../../Components/TimeInput/TimeInput';
 import { MoreVertical } from 'react-feather';
 import DatePicker from 'react-datepicker'
 import { subDays } from "date-fns";
+import { useQueryParams } from '../../helpers/useQueryParams'
 import "react-datepicker/dist/react-datepicker.css";
 import './index.css';
 import axios from 'axios';
@@ -16,10 +17,11 @@ const PickDate = () => {
 
     const [startDate, setStartDate] = useState(new Date())
     const [dateAndHour, setDateAndHour] = useState({})
-    const userId = window.localStorage.getItem('user')
     const token = window.localStorage.getItem('token')
     const config = {headers: {authorization:`${token}`}}
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const { serviceId } = useQueryParams()
+  
 
     useEffect(() => {
         // setWidthTypes(sliderTypes.current.scrollWidth - sliderTypes.current.offsetWidth);
@@ -30,11 +32,11 @@ const PickDate = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate]);
 
-    const saveHandlerDate = async () => {
-        axios.post(`https://washak-api.washak.xyz/services/save/${userId}`, dateAndHour, config)
+    const saveHandlerDate = () => {
+        axios.patch(`https://washak-api.washak.xyz/services/${serviceId}`, dateAndHour, config)
         .then(res => {
             console.log(res)
-            navigate('/addPosition')
+            navigate(`/addPosition?serviceId=${res.data?.cars._id}`)
         })
         .catch(e => {
             console.log(e)
