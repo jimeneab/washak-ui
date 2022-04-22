@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import NavBar from '../../Components/NavBar/NavBar';
 import TimeButton from '../../Components/TimeButton/TimeButton';
@@ -104,7 +104,7 @@ const PickDate = () => {
                 </div>
             </div>
             <div className='mx-4 mt-5'>
-                <Button width={'large'} color="primary" onClick={saveHandlerDate}>Agendar</Button>
+                <Button width={'large'} color="primary" onClick={saveHandlerDate}>Siguiente</Button>
             </div>
 
         </section>

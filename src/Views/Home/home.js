@@ -110,7 +110,7 @@ const Home = () => {
         </motion.div>
       </section>
       <div className="button-container px-4 mt-4">
-        <Button color="primary" width="large">Siguiente</Button>
+        <Link to="/fecha"><Button color="primary" width="large">Siguiente</Button></Link>
       </div>
     </div>
   )
