@@ -6,6 +6,7 @@ import { useQueryParams } from '../../helpers/useQueryParams'
 import Button from '../../Components/Button/Button'
 import NavBar from '../../Components/NavBar/NavBar.js'
 import carFront from "../../Images/car-front.svg"
+import { PayPalButton } from "react-paypal-button-v2";
 import './dateandpay.css'
 
 const DateAndPay = () => {
@@ -19,10 +20,13 @@ const DateAndPay = () => {
     console.log(serviceId)
 
     useEffect(() => {
-            axios.get(`https://washak-api.washak.xyz/services/${serviceId}`, config)
+            const params = (new URL(document.location)).searchParams
+            const serviceIdParams = params.get("serviceId")
+            console.log("service id:", serviceIdParams)
+            axios.get(`https://washak-api.washak.xyz/services/${serviceIdParams}`, config)
             .then(res => {
-                console.log(res.data.allService)
-                setServiceInfo(res.data.allService)
+                console.log("all services", res.data.cars)
+                setServiceInfo(res.data.cars)
             })
             .catch(e => {
                 console.error(e)
@@ -33,14 +37,14 @@ const DateAndPay = () => {
         if (!token) {
             redirectFunction()
         }
-    }, [navigate])
+    }, [serviceId])
 
     return (
         <section className="bgimg-1">
             <NavBar />
             <h2 className="title mx-4">Agenda tu cita</h2>
             {serviceInfo &&
-                serviceInfo.map((service, index) => {
+                [serviceInfo].map((service, index) => {
                     const { packageWash, marca, placa, place, day, month, hour } = service
 
                     return (
@@ -91,6 +95,21 @@ const DateAndPay = () => {
                 </div> */}
             </div>
             <div className='mx-4 mt-4'>
+                <PayPalButton
+                    amount="0.01"
+                    // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                    onSuccess={(details) => {
+                        alert("Transaction completed by " + details.payer.name.given_name);
+
+                        // OPTIONAL: Call your server to save the transaction
+                       /*  return fetch("/paypal-transaction-complete", {
+                            method: "post",
+                            body: JSON.stringify({
+                                orderID: data.orderID
+                            })
+                        }); */
+                    }}
+                />
                 <Button color={'primary'} width={'large'} >PayPal</Button>
             </div>
         </section>
