@@ -14,7 +14,7 @@ function Historial() {
 
   useEffect(() => {
     const userId = localStorage.getItem('user')
-    axios.get(`http://localhost:4000/services/byUser/${userId}`, config)
+    axios.get(`https://washak-api.washak.xyz/services/byUser/${userId}`, config)
   .then(res => {
     console.log(res.data.allService)
     setCardHistory(res.data.allService)
