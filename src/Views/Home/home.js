@@ -10,8 +10,12 @@ import Button from "../../Components/Button/Button"
 
 const Home = () => {
   const [myCars,setMyCars] = useState([])
+  const [userId,setUserId] = useState(null)
+  const [token, setToken] = useState(null)
   const [current, setCurrent] = useState(null)
+  const [selectedCar, setSelectedCar] = useState(null)
   const [currentService, setCurrentService] = useState(null)
+  const config = {headers: {authorization:`${token}`}}
   const navigate = useNavigate();
   
   //vehicles cards 
@@ -27,7 +31,9 @@ const Home = () => {
   
   useEffect(() => {
     const userId = localStorage.getItem('user')
+    setUserId(userId)
     const token = localStorage.getItem('token')
+    setToken(token)
     const redirectFunction = () => navigate('/login')
     
     const getMyCars = () => {
@@ -57,11 +63,37 @@ const Home = () => {
   const handlerCarCard = (e) => {
     const value = e.target.value
     setCurrent(value)
+    axios.get(`https://washak-api.washak.xyz/cars/${value}`)
+    .then(res => {
+      setSelectedCar(res.data?.cars)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   const handleServiceCard = (e) => {
     const value = e.target.value
+    console.log(value)
     setCurrentService(value)
+  }
+
+  const saveData = () => {
+    axios.post(`https://washak-api.washak.xyz/services/save/${userId}`, {
+      vehiculo: selectedCar.vehiculo, 
+      marcar: selectedCar.marca,
+      modelo: selectedCar.modelo,
+      color: selectedCar.color,
+      placa: selectedCar.placa,
+      packageWash: currentService
+    }, config)
+    .then(res => {
+      console.log(res)
+      navigate('/fecha')
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
   
   return(
@@ -118,7 +150,7 @@ const Home = () => {
         </motion.div>
       </section>
       <div className="button-container m-4">
-        <Link to="/fecha"><Button color="primary" width="large">Siguiente</Button></Link>
+       <Button color="primary" width="large" onClick={() => saveData()}>Siguiente</Button>
       </div>
     </div>
   )
