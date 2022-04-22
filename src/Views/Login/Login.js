@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "../../Components/Button/Button";
-import { User, Lock } from 'react-feather'
+import { Mail, Lock } from 'react-feather'
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import './Login.css'
 import logo from "../../Images/logo.svg"
@@ -54,12 +54,12 @@ const handlePasswordInput = (e) => {
                 {error && <p>Email o password incorrectos</p>}
                 <form>
                     <div className="login-input">
-                        <User color="#003366" width={'20px'} className="mx-1"/>
-                        <input type={'email'} placeholder='usuario' onChange={handleEmailInput} className="mx-1"/>
+                        <Mail color="#003366" width={'20px'} className="mx-1"/>
+                        <input type={'email'} placeholder='Correo' onChange={handleEmailInput} className="mx-1"/>
                     </div>
                     <div className="login-input">
                         <Lock color="#003366" width={'20px'} className="mx-1" />
-                        <input type={'password'} placeholder='contraseña' className="mx-1" onChange={handlePasswordInput} />
+                        <input type={'password'} placeholder='Contraseña' className="mx-1" onChange={handlePasswordInput} />
                     </div>
                     <a href='/' >olvidaste tu contraseña?</a>
                 </form>
