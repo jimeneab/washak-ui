@@ -1,7 +1,7 @@
 import React from "react";
 import "./TimeButton.css";
 
-function TimeButton(props, { isAm }) {
+function TimeButton(props) {
   
   return (
     <div

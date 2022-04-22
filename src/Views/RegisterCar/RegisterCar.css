@@ -13,6 +13,10 @@
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
 }
 
+.link-register-car {
+    color:#003366;
+}
+
 .registerCar-input.form-control::placeholder{
     font-family: Oxygen;
     color:#003366;

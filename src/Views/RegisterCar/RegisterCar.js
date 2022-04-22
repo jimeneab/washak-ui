@@ -43,11 +43,17 @@ function RegisterCar() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate]);
+    
+    const typeHandler = (e) => {
+      const value = e.target.value
+      const property = e.target.name
+      setCurrent(e.target.value)
+      setNewCars({ ...newCars, [property]:value })
+    }
 
     const formHandler = event => {
         const value = event.target.value
         const property = event.target.name
-        setCurrent(event.target.value);
         setNewCars({ ...newCars, [property]: value })
     }
     const saveHandler = async () => {
@@ -63,7 +69,7 @@ function RegisterCar() {
   return (
     <div className='register'>
       <section className='bgimg-1'>
-        <ModalComponent isShowModal={isShowModal} content={<Link to='/home'>Agendar servicio</Link>} isShownFooter={false} setIsShowModal={setIsShowModal}/>
+        <ModalComponent isShowModal={isShowModal} content={<Link className="link-register-car" to='/home'>Agendar servicio</Link>} isShownFooter={false} setIsShowModal={setIsShowModal}/>
         <NavBar />
         <h1 className='title mx-4'>Añade un vehículo</h1>
         <h2 className='subtitle mx-4'>Tipo de vehículo</h2>
@@ -78,7 +84,7 @@ function RegisterCar() {
               id='motocicleta'
               value='motocicleta'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='motocicleta'
@@ -96,7 +102,7 @@ function RegisterCar() {
               id='sedan'
               value='sedan'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='sedan'
@@ -114,7 +120,7 @@ function RegisterCar() {
               id='hatchback'
               value='hatchback'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='hatchback'
@@ -132,7 +138,7 @@ function RegisterCar() {
               id='crossover'
               value='crossover'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='crossover'
@@ -150,7 +156,7 @@ function RegisterCar() {
               id='suv'
               value='suv'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='suv'
@@ -165,7 +171,7 @@ function RegisterCar() {
               id='pickup'
               value='pickup'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='pickup'
@@ -183,7 +189,7 @@ function RegisterCar() {
               id='van'
               value='van'
               className='hide-radio'
-              onChange={formHandler}
+              onChange={typeHandler}
             />
             <label
               htmlFor='van'
