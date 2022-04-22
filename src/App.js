@@ -22,12 +22,6 @@ import Home from './Views/Home/home';
 function App() {
   const [isShowModal, setIsShowModal] = useState(false)
 
-
-
-  const toggleModal = () => {
-    setIsShowModal(!isShowModal)
-  }
-
   return (
     <div className="App">
       <ModalComponent isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
@@ -49,39 +43,17 @@ function App() {
         <Route path='/rateService' element={<RateService />} />
       </Routes>
 
-      <Link to='/'>
-        <button>Landing</button>
-      </Link>
-      <Link to='/home'>
-        <button>Home</button>
-      </Link>
-      <Link to='/notFound'>
-        <button>notFound</button>
-      </Link>
-      <Link to='/registerCar'>
-        <button>Reister car</button>
-      </Link>
       <Link to='/addPosition'>
         <button>Agregar ubicacion</button>
       </Link>
       <Link to='/perfil'>
         <button>Perfil</button>
       </Link>
-      <Button onClick={toggleModal}> Abrir modal </Button>
-      <Link to='/registro'>
-        <button>Registro</button>
-      </Link>
       <Link to='/fecha'>
         <button>Fecha</button>
       </Link>
-      <Link to='/myVehicles'>
-        <button>Mis vehículos</button>
-      </Link>
       <Link to='/dateAndPay'>
         <button>Cita-Pago</button>
-      </Link>
-      <Link to='/serviceHistory'>
-        <button>Historial de servicios</button>
       </Link>
       <Link to='/workInProgress'>
         <button>En proceso</button>

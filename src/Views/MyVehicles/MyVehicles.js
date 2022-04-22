@@ -9,7 +9,6 @@ import Button from "../../Components/Button/Button"
 function MyVehicles() {
   
   const [carData, setCarData] = useState()
-  
   const navigate = useNavigate()
   
   useEffect(() => {
@@ -37,10 +36,12 @@ function MyVehicles() {
       <section>
         <h1 className='title'>Mis Vehículos</h1>
         {carData  && carData.map((car, index) => {
-          console.log(car)
-          const {marca, modelo, placa, color} = car
+
+          const {marca, modelo, placa, color, vehiculo} = car
+
             return(
                 <CardVehicles
+                type={vehiculo}
                 carId={car._id}
                 key={index}
                 brand={marca}

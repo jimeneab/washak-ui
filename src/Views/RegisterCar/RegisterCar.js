@@ -31,6 +31,7 @@ function RegisterCar() {
 
     useEffect(() => {
       const token = window.localStorage.getItem('token')
+      console.log(token)
       setToken(token)
       if (!token) {
         return <Navigate to="/login" replace />;

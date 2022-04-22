@@ -34,6 +34,7 @@ const PickDate = () => {
         axios.post(`https://washak-api.washak.xyz/services/save/${userId}`, dateAndHour, config)
         .then(res => {
             console.log(res)
+            navigate('/addPosition')
         })
         .catch(e => {
             console.log(e)
@@ -104,7 +105,7 @@ const PickDate = () => {
                 </div>
             </div>
             <div className='mx-4 mt-5'>
-                <Button width={'large'} color="primary" onClick={saveHandlerDate}>Agendar</Button>
+                <Button width={'large'} color="primary" onClick={saveHandlerDate}>Siguiente</Button>
             </div>
 
         </section>

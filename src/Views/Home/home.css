@@ -18,3 +18,11 @@
     display: flex;
     justify-content: space-around;
 }
+
+.car-input{
+    display: none;
+}
+
+#EXPRESS, #PREMIUM, #COMPLETE {
+    display: none;
+}

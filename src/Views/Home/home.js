@@ -10,6 +10,8 @@ import Button from "../../Components/Button/Button"
 
 const Home = () => {
   const [myCars,setMyCars] = useState([])
+  const [current, setCurrent] = useState(null)
+  const [currentService, setCurrentService] = useState(null)
   const navigate = useNavigate();
   
   //vehicles cards 
@@ -51,6 +53,16 @@ const Home = () => {
         redirectFunction()
     }
   }, [navigate])
+
+  const handlerCarCard = (e) => {
+    const value = e.target.value
+    setCurrent(value)
+  }
+
+  const handleServiceCard = (e) => {
+    const value = e.target.value
+    setCurrentService(value)
+  }
   
   return(
     <div className="bgimg-1 home">
@@ -64,11 +76,19 @@ const Home = () => {
           <motion.div ref={sliderVehicles} className="slider-container ps-4">
             <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
               {myCars.map((car, index) => {
-                const {marca, modelo} = car
+                const {marca, modelo, vehiculo, _id} = car
                 return (
-                  <SmallCard key={index} 
-                  brand={marca}
-                  model={modelo}/>
+                  <div key={index}>
+                  <input className={'car-input'} type='radio' value={_id} name='carCard' id={_id} onChange={handlerCarCard} />
+                  <label htmlFor={_id}>
+                    <SmallCard
+                    bgColor={current === _id ? "#036": "#f3f3f3"} 
+                    selectedColor = {current === _id ? "#f3f3f3": "#036"} 
+                    type={vehiculo}
+                    brand={marca}
+                    model={modelo}/>
+                  </label>
+                  </div>
                 )
               }
               )}
@@ -80,14 +100,23 @@ const Home = () => {
       <section className="services">
         <motion.div ref={sliderServices} className="slider-container ps-4">
           <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthServices + 22)}}>
-            <ServiceCard image="express" type="EXPRESS" price="$90.00" />
-            <ServiceCard image="interior" type="COMPLETE" price="$150.00" />
-            <ServiceCard image="premium" type="PREMIUM" price="$220.00"/>
+            <input type='radio' value={"EXPRESS"} name='serviceType' id={"EXPRESS"} onChange={handleServiceCard} />
+            <label htmlFor="EXPRESS">
+              <ServiceCard image="express" type="EXPRESS" price="$90.00" className={currentService === 'EXPRESS' ? 'selected' : null}/>
+            </label>
+            <input type='radio' value={"COMPLETE"} name='serviceType' id={"COMPLETE"} onChange={handleServiceCard} />
+            <label htmlFor="COMPLETE">
+            <ServiceCard image="interior" type="COMPLETE" price="$150.00" className={currentService === 'COMPLETE' ? 'selected' : null}/>
+            </label>
+            <input type='radio' value={"PREMIUM"} name='serviceType' id={"PREMIUM"} onChange={handleServiceCard} />
+            <label htmlFor="PREMIUM">
+            <ServiceCard image="premium" type="PREMIUM" price="$220.00" className={currentService === 'PREMIUM' ? 'selected' : null}/>
+            </label>
           </motion.div>
         </motion.div>
       </section>
       <div className="button-container px-4 mt-4">
-        <Button color="primary" width="large">Siguiente</Button>
+        <Link to="/fecha"><Button color="primary" width="large">Siguiente</Button></Link>
       </div>
     </div>
   )
