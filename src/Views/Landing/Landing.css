@@ -1,7 +1,6 @@
 .landing-hero{
-    background-image: url('https://indiepropub.com/wp-content/uploads/2021/09/Hombre-lavando-auto..-678x381.png');
-    background-color: #cccccc;
-    background-size: cover;
+    background-image: url('../../Images//car-wash-detailing-station.jpg');
+    background-size: cover;    
     height: 400px;
     display: flex;
     justify-content: center;
@@ -9,13 +8,21 @@
     flex-direction: column;
 }
 
-.landing-hero h1{
-  color: #f9f9f9;
-  font-size: 2.5rem;
-  margin: 15px;
+.logo-landing{
+    position:relative;
+    left: 25px;
+    width:90%;
 }
 
-.landing-hero button{
+.washak-info {
+    background: #003366;
+    color:#f3f3f3;
+    font-family: Oxygen;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.washak-info button{
     background-color: #FF9933;
     border: none;
     padding: 10px 35px;
@@ -26,7 +33,7 @@
 }
 
 .landing-how-works{
-    background: #003366;
+    background-color: #f3f3f3;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -35,36 +42,44 @@
     flex-direction: column;
 }
 
-.landing-how-works h2{
-    color: white;
-}
-
 .card-how-works{
-    width: 60%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 80%;
+    box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
     background-color: #f9f9f9;
     border-radius: 20px;
     margin-top: 25px;
 }
 
 .card-how-works-header{
+    height: 200px;
     display: flex;
     justify-content: center;
 }
 
 .icon-container{
-    background-color: #cccccc;
-    border-radius: 50%;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    margin: 15px;
+   width: 60%;
+   padding-top: 30px;
+}
+
+.landing-registro {
+    position: relative;
+    right: -15px;
+    height: 170px;
+}
+
+.landing-shine {
+    height:170px;
 }
 
 .card-how-works-body{
-    margin: 0px 20px;
+    margin: 20px 20px;
+    font-family: Oxygen;
+    color:#003366;
+}
+
+.card-how-works-body h3{
+    font-weight: 700;
+    color:#FF9933;
 }
 
 .landing-pros{
@@ -74,13 +89,19 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    background-color: #f3f3f3;
+    background-color: #036;
+    font-family: Oxygen;
+    color: #036;
+}
+
+.landing-pros h2 {
+    color:#f3f3f3;
 }
 
 .card-pros{
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 85%;
+    width: 80%;
     margin-top: 25px;
     background-color: #f9f9f9;
     border-radius: 20px;
