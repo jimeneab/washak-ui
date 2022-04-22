@@ -23,7 +23,10 @@ const AddPosition = () => {
     }
     
     const saveHandlerAddress = async () => {
-        axios.patch(`https://washak-api.washak.xyz/services/${serviceId}`, address, config)
+        axios.patch(`https://washak-api.washak.xyz/services/${serviceId}`, {
+            place: address.ubicacion, 
+            address: address.referencias 
+        }, config)
         .then(res => {
             console.log(res)
             navigate(`/dateAndPay`)
