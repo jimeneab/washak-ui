@@ -31,7 +31,7 @@ function MyVehicles() {
 
 
   return (
-    <div className='bgimg-1'>
+    <div className='bgimg-1 pb-4'>
       <NavBar />
       <section className="mx-4">
         <h1 className='title'>Mis Vehículos</h1>

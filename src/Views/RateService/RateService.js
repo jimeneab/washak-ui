@@ -50,7 +50,7 @@ function RateService({ service, idService}){
   }
   
   return(
-    <div className="bgimg-1">
+    <div className="bgimg-1 pb-4">
       <NavBar />
       <section className="mx-4">
         <h1 className="title">
@@ -81,8 +81,8 @@ function RateService({ service, idService}){
             </div>
         </div>
         <textarea id="rate-comments" rows="5" placeholder="Déjanos tus comentarios" onChange={inputRate}/>
+        
         <Button color="primary" width="large" onClick={buttonRate}>Enviar</Button>
-        <button color={'primary'} width={'large'} onClick={buttonRate}>Enviar</button>
       </section>
     </div>
   )

@@ -149,7 +149,7 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </section>
-      <div className="button-container m-4">
+      <div className="button-container m-4 pb-4">
        <Button color="primary" width="large" onClick={() => saveData()}>Siguiente</Button>
       </div>
     </div>

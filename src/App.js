@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Register from "./Views/Register/register"
 import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
@@ -42,7 +42,7 @@ function App() {
         <Route path='/rateService' element={<RateService />} />
       </Routes>
 
-      <Link to='/addPosition'>
+      {/* <Link to='/addPosition'>
         <button>Agregar ubicacion</button>
       </Link>
       <Link to='/perfil'>
@@ -59,7 +59,7 @@ function App() {
       </Link>
       <Link to='/rateService'>
         <button>Calificar</button>
-      </Link>
+      </Link> */}
     </div>
   );
 }

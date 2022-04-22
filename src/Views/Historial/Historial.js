@@ -33,7 +33,7 @@ function Historial() {
   return(
     <div className="bgimg-1">
       <NavBar />
-      <section className='mx-4'>
+      <section className='mx-4 pb-4'>
         <h1 className="title">Historial de servicios</h1>
         {cardHistory && cardHistory.map((card, index) => {
             const {vehiculo, marca, modelo, packageWash, place, hour, month, day} = card
