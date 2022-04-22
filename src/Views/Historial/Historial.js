@@ -36,10 +36,11 @@ function Historial() {
       <section className='mx-4'>
         <h1 className="title">Historial de servicios</h1>
         {cardHistory && cardHistory.map((card, index) => {
-            const {marca, modelo, packageWash, place, hour, month, day} = card
+            const {vehiculo, marca, modelo, packageWash, place, hour, month, day} = card
             return (
               <CardHistory
-              key={index}
+                key={index}
+                image={vehiculo}
                 service={packageWash}
                 brand={marca} 
                 model={modelo}
