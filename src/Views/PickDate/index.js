@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Components/Button/Button';
 import NavBar from '../../Components/NavBar/NavBar';
 import TimeButton from '../../Components/TimeButton/TimeButton';
@@ -34,6 +34,7 @@ const PickDate = () => {
         axios.post(`https://washak-api.washak.xyz/services/save/${userId}`, dateAndHour, config)
         .then(res => {
             console.log(res)
+            navigate('/addPosition')
         })
         .catch(e => {
             console.log(e)

@@ -22,3 +22,7 @@
 .car-input{
     display: none;
 }
+
+#EXPRESS, #PREMIUM, #COMPLETE {
+    display: none;
+}

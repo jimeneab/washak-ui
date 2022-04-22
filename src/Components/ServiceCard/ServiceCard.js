@@ -5,7 +5,7 @@ import premium from "../../Images/premium.svg"
 import "./ServiceCard.css"
 
 function ServiceCard(props){
-  const { type, price, info, image } = props
+  const { type, price, info, image, className } = props
   const imageConfig = {
     express: express,
     interior: interior,
@@ -21,7 +21,7 @@ function ServiceCard(props){
   const setWidth = (isPremium) => isPremium === "premium" ? widthConfig[isPremium] : widthConfig[isPremium] 
 
   return(
-    <div className={`card-service d-flex align-items-center me-4 ${setWidth(image)}`}>
+    <div className={`card-service d-flex align-items-center me-4 ${setWidth(image)} ${className}`}>
       <div className="service-info">
         <p>
           {type}

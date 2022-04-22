@@ -14,7 +14,7 @@ const getCarType = () => {
  switch(type){
    case 'motocicleta': return <Moto stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
    case 'crossover': return <Crossover stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'sedan': return <Sedan stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
+   case 'sedan': return <Sedan  stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
    case 'hatchback': return <Hatchback stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
    case 'suv': return <Suv stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
    case 'pickup': return <Pickup stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
@@ -24,7 +24,7 @@ const getCarType = () => {
 }
 
   return(
-    <div className="small-card me-4" style={{ "background-color": bgColor}}>
+    <div className="small-card me-4" style={{ "backgroundColor": bgColor}}>
       <p className="small-info" style={{ "color": selectedColor }}>
         {brand} • {model}
       </p>
