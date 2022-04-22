@@ -30,7 +30,6 @@ function Historial() {
     }
 }, [navigate])
 
-
   return(
     <div className="bgimg-1">
       <NavBar />
