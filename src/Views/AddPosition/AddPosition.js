@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Button from "../../Components/Button/Button";
-import {Navigate} from 'react-router-dom'
+import {Navigate, useNavigate } from 'react-router-dom'
 import { Search } from 'react-feather'
 import MapView from "../../Components/MapView/Mapview";
 import NavBar from "../../Components/NavBar/NavBar";
+import { useQueryParams } from '../../helpers/useQueryParams'
 import './AddPosition.css'
 import axios from 'axios'
 
@@ -13,7 +14,8 @@ const AddPosition = () => {
 
     const [address, setAddress] = useState({})
     const token = localStorage.getItem('token')
-    const userId = window.localStorage.getItem('user')
+    const { serviceId } = useQueryParams()
+    const navigate = useNavigate()
     const config = {headers: {'Content-Type': 'application/json', authorization:`${token}`}}
 
     if (!token) {
@@ -21,15 +23,20 @@ const AddPosition = () => {
     }
     
     const saveHandlerAddress = async () => {
-        axios.post(`https://washak-api.washak.xyz/maps/${userId}`, address, config)
+        axios.patch(`https://washak-api.washak.xyz/services/${serviceId}`, {
+            place: address.ubicacion, 
+            address: address.referencias 
+        }, config)
         .then(res => {
             console.log(res)
+            navigate(`/dateAndPay?serviceId=${res.data?.cars?._id}`)
         })
         .catch(e => {
             console.log(e)
         })
     }
 
+    //TODO : modificar address handler si se va a usar ubicacion actual o lo que se escriba en el input
     const addressHandler = event => {
         const ubicacion = event.target.value
         console.log(address)
@@ -42,7 +49,6 @@ const AddPosition = () => {
         setAddress({...address, referencias})
         console.log(address)
     }
-
 
     return(
         <section className="add-position bgimg-1">

@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import { Button } from 'reactstrap';
 import Register from "./Views/Register/register"
 import NotFound from './Views/NotFound/notFound';
 import RegisterCar from './Views/RegisterCar/RegisterCar';
