@@ -14,13 +14,14 @@
     cursor:grab;
 }
 
-.user-vehicles-header{
-    display: flex;
-    justify-content: space-around;
-}
-
 .car-input{
     display: none;
+}
+
+.link-mvehicles {
+    font-weight: 700;
+    color: #036;
+    text-align: right;
 }
 
 #EXPRESS, #PREMIUM, #COMPLETE {

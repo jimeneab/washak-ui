@@ -66,34 +66,36 @@ const Home = () => {
   
   return(
     <div className="bgimg-1 home">
-      <NavBar isHome="true"/>        
+      <NavBar type="home"/>        
       <section className="user-vehicles">
         <div className="user-vehicles-header">
           <h2 className="subtitle ms-4">Elige uno de tus vehículos</h2>
-          <Link to='/myVehicles'>Ir a mis vehiculos</Link>
         </div>
         <form className="home-vehicles">
           <motion.div ref={sliderVehicles} className="slider-container ps-4">
-            <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles + 20)}}>
+            <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthVehicles)}}>
               {myCars.map((car, index) => {
                 const {marca, modelo, vehiculo, _id} = car
                 return (
-                  <div key={index}>
-                  <input className={'car-input'} type='radio' value={_id} name='carCard' id={_id} onChange={handlerCarCard} />
-                  <label htmlFor={_id}>
-                    <SmallCard
-                    bgColor={current === _id ? "#036": "#f3f3f3"} 
-                    selectedColor = {current === _id ? "#f3f3f3": "#036"} 
-                    type={vehiculo}
-                    brand={marca}
-                    model={modelo}/>
-                  </label>
-                  </div>
+                  <motion.div key={index}>
+                    <input className={'car-input'} type='radio' value={_id} name='carCard' id={_id} onChange={handlerCarCard} />
+                    <label htmlFor={_id}>
+                      <SmallCard
+                        bgColor={current === _id ? "#036": "#f3f3f3"} 
+                        selectedColor = {current === _id ? "#f3f3f3": "#036"} 
+                        type={vehiculo}
+                        brand={marca}
+                        model={modelo}/>
+                    </label>
+                  </motion.div>
                 )
               }
               )}
             </motion.div>
           </motion.div>
+          <div className="d-flex justify-content-start ms-4 mb-4">  
+            <Link className="link-mvehicles" to='/myVehicles'>Ir a mis vehículos</Link>
+          </div>
         </form>
         <h2 className="subtitle ms-4">Elige el tipo de servicio</h2>
       </section>
@@ -102,20 +104,20 @@ const Home = () => {
           <motion.div className="slider-vehicles d-flex" drag="x" dragConstraints={{right: 0, left: -(widthServices + 22)}}>
             <input type='radio' value={"EXPRESS"} name='serviceType' id={"EXPRESS"} onChange={handleServiceCard} />
             <label htmlFor="EXPRESS">
-              <ServiceCard image="express" type="EXPRESS" price="$90.00" className={currentService === 'EXPRESS' ? 'selected' : null}/>
+              <ServiceCard image={currentService === 'EXPRESS' ? "expressLight" : "express"} type="EXPRESS" price="$90.00" className={currentService === 'EXPRESS' ? 'selected' : null}/>
             </label>
             <input type='radio' value={"COMPLETE"} name='serviceType' id={"COMPLETE"} onChange={handleServiceCard} />
             <label htmlFor="COMPLETE">
-            <ServiceCard image="interior" type="COMPLETE" price="$150.00" className={currentService === 'COMPLETE' ? 'selected' : null}/>
+              <ServiceCard image={currentService === 'COMPLETE' ? "interiorLight" : "interior"} type="COMPLETE" price="$150.00" className={currentService === 'COMPLETE' ? 'selected' : null}/>
             </label>
             <input type='radio' value={"PREMIUM"} name='serviceType' id={"PREMIUM"} onChange={handleServiceCard} />
             <label htmlFor="PREMIUM">
-            <ServiceCard image="premium" type="PREMIUM" price="$220.00" className={currentService === 'PREMIUM' ? 'selected' : null}/>
+              <ServiceCard isPremium="premium" image={currentService === 'PREMIUM' ? "premiumLight" : "premium"} type="PREMIUM" price="$220.00" className={currentService === 'PREMIUM' ? 'selected' : null}/>
             </label>
           </motion.div>
         </motion.div>
       </section>
-      <div className="button-container px-4 mt-4">
+      <div className="button-container m-4">
         <Link to="/fecha"><Button color="primary" width="large">Siguiente</Button></Link>
       </div>
     </div>

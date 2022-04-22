@@ -12,14 +12,14 @@ function SmallCard({ type, brand, model,bgColor, selectedColor }){
 
 const getCarType = () => {
  switch(type){
-   case 'motocicleta': return <Moto stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'crossover': return <Crossover stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'sedan': return <Sedan  stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'hatchback': return <Hatchback stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'suv': return <Suv stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'pickup': return <Pickup stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   case 'van': return <Van stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
-   default: return <Sedan stroke={bgColor === "#036" ? "#f3f3f3" : "#036"} />;
+   case 'motocicleta': return <Moto width={80}stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   case 'crossover': return <Crossover className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   case 'sedan': return <Sedan className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   case 'hatchback': return <Hatchback className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   case 'suv': return <Suv className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   case 'pickup': return <Pickup className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   case 'van': return <Van className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
+   default: return <Sedan className="small-img" stroke={bgColor === "#036" ? "#f3f3f3" : "black"} />;
  }
 }
 
@@ -28,7 +28,9 @@ const getCarType = () => {
       <p className="small-info" style={{ "color": selectedColor }}>
         {brand} • {model}
       </p>
-      {getCarType()}
+      <div className="d-flex flex-column align-items-center">
+        {getCarType()}
+      </div>
     </div>
   )
 }

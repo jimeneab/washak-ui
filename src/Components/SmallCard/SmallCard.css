@@ -3,6 +3,8 @@
     border-radius: 1.5rem;
     box-shadow: 2px 5px 10px 0.5px rgba(0, 51, 102, 15%);
     padding: 15px;
+    height: 140px;
+    width:36vw;
 }
 .small-info{
     font-family: Oxygen;
@@ -10,6 +12,5 @@
     color: #003366;
 }
 .small-img {
-    width:100px;
     pointer-events: none;
 }
