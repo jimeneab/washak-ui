@@ -1,11 +1,11 @@
-import './dateandpay.css'
-import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Calendar, MapPin, ShoppingCart } from 'react-feather'
 import { useNavigate } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 import NavBar from '../../Components/NavBar/NavBar.js'
-import { ShoppingCart, Calendar, MapPin } from 'react-feather'
 import carFront from "../../Images/car-front.svg"
-import axios from 'axios'
+import './dateandpay.css'
 
 const DateAndPay = () => {
 
@@ -38,8 +38,8 @@ const DateAndPay = () => {
             <h2 className="title mx-4">Agenda tu cita</h2>
             {serviceInfo &&
                 serviceInfo.map((service, index) => {
-                    const {packageWash, marca, placa, place, day, month, hour} = service
-                    
+                    const { packageWash, marca, placa, place, day, month, hour } = service
+
                     return (
                         <div className='mx-4 d-flex flex-column align-items-start confirm-info'>
                             <div className='d-flex'>
@@ -51,7 +51,7 @@ const DateAndPay = () => {
                             <div className='d-flex'>
                                 <img src={carFront} style={{ width: 35 }} />
                                 <p>
-                                    <b className='ms-4'>Vehículo: </b> {marca} • {placa}    
+                                    <b className='ms-4'>Vehículo: </b> {marca} • {placa}
                                 </p>
                             </div>
                             <div className='d-flex'>
