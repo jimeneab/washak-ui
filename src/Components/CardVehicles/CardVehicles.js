@@ -15,6 +15,7 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
+import ModalComponent from "../Modal/Modal";
 
 function CardVehicles({ brand, model, color, licensePlate, carId, type }) {
   const [dropdown, setDropdown] = useState(false);
@@ -25,6 +26,8 @@ function CardVehicles({ brand, model, color, licensePlate, carId, type }) {
   const openDropdown = () => setDropdown(!dropdown);
 
   //TODO: agregar modal para confirmar eliminar
+  const [isShowModal, setIsShowModal] = useState(false)
+  const toggleModal = () => setIsShowModal(!isShowModal)
 
   const deleteCar = () => {
     axios.delete(`https://washak-api.washak.xyz/cars/${carId}`, config)
@@ -62,6 +65,7 @@ function CardVehicles({ brand, model, color, licensePlate, carId, type }) {
         <p>
           {color} • {licensePlate}
         </p>
+        <ModalComponent onCancel={toggleModal} onConfirm={deleteCar} isShowModal={isShowModal} setIsShowModal={setIsShowModal} content={"Deseas eliminar este vehículo?"}/> 
         <Dropdown isOpen={dropdown} toggle={openDropdown}>
           <DropdownToggle className='card-dropdown'>
             <MoreVertical color='#003366' />
@@ -69,7 +73,7 @@ function CardVehicles({ brand, model, color, licensePlate, carId, type }) {
           <DropdownMenu className='card-dmenu'>
             <DropdownItem className="card-ditem">Editar</DropdownItem>
             <hr />
-            <DropdownItem className="card-ditem" onClick={deleteCar}>Eliminar</DropdownItem>
+            <DropdownItem className="card-ditem" onClick={toggleModal}>Eliminar</DropdownItem>
           </DropdownMenu>
         </Dropdown>
       </div>

@@ -31,9 +31,9 @@ function MyVehicles() {
 
 
   return (
-    <div className='bgimg-1 px-4'>
+    <div className='bgimg-1'>
       <NavBar />
-      <section>
+      <section className="mx-4">
         <h1 className='title'>Mis Vehículos</h1>
         {carData  && carData.map((car, index) => {
 
@@ -51,7 +51,9 @@ function MyVehicles() {
               )
           })}
       </section>
-      <Link to="/registerCar"><Button color="primary" width="large" >Añadir</Button></Link>
+      <div className="mx-4">
+        <Link to="/registerCar"><Button color="primary" width="large" >Añadir</Button></Link>
+      </div>
     </div>
   );
 }
