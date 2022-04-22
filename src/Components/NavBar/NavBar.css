@@ -12,6 +12,13 @@ nav {
     padding-top: 20px;
 }
 
+.user-circle{
+    position: relative;
+    width:50px;
+    height: 50px;
+    background-color: #036;
+}
+
 .container-profile {
     position: relative;
 }

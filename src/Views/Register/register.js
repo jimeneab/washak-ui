@@ -28,7 +28,7 @@ const Register = () => {
         .then(res => {
             if(res.status === 200){
                 setSuccess(true)
-                navigate("/login")
+                setTimeout (()=>navigate("/login"),2000)
             }
         })
         .catch(err => {

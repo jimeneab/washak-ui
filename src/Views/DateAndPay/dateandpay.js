@@ -39,15 +39,21 @@ const DateAndPay = () => {
         }
     }, [serviceId])
 
+    const { packageWash, marca, placa, place, day, month, hour } = serviceInfo || {}
+    const priceConfig = {
+        EXPRESS: 90,
+        COMPLETE: 150,
+        PREMIUM: 220
+    }
+    const iva = priceConfig[packageWash] * 0.16
+    const total = priceConfig[packageWash] + iva
+
     return (
         <section className="bgimg-1">
             <NavBar />
             <h2 className="title mx-4">Agenda tu cita</h2>
             {serviceInfo &&
-                [serviceInfo].map((service, index) => {
-                    const { packageWash, marca, placa, place, day, month, hour } = service
-
-                    return (
+                        (
                         <div className='mx-4 d-flex flex-column align-items-start confirm-info'>
                             <div className='d-flex'>
                                 <ShoppingCart color="#003366" size={30} />
@@ -76,13 +82,12 @@ const DateAndPay = () => {
                                 </p>
                             </div>
                             <div className="checkout">
-                                <p className='mb-0'><b>Subtotal</b> $90.00</p>
-                                <p className='mb-0'><b>IVA</b> $14.40</p>
-                                <p className='mb-0'><b>Total</b> $104.40</p>
+                                <p className='mb-0'><b>Subtotal</b> ${priceConfig[packageWash]}.00</p>
+                                <p className='mb-0'><b>IVA</b> ${iva}</p>
+                                <p className='mb-0'><b>Total</b> ${total}</p>
                             </div>
                         </div>
                     )
-                })
             }
 
             <div>
@@ -96,10 +101,11 @@ const DateAndPay = () => {
             </div>
             <div className='mx-4 mt-4'>
                 <PayPalButton
-                    amount="0.01"
+                    amount={Math.ceil(total/20)}
+                    
                     // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                     onSuccess={(details) => {
-                        alert("Transaction completed by " + details.payer.name.given_name);
+                        navigate("/workInProgress");
 
                         // OPTIONAL: Call your server to save the transaction
                        /*  return fetch("/paypal-transaction-complete", {

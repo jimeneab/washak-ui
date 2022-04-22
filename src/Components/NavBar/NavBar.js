@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, MoreVertical, X } from "react-feather";
 import reducedLogo from "../../Images/logo-small.svg"
 import ModalComponent from "../Modal/Modal";
+import avatar from "../../Images/user-avatar.svg"
 
 function NavBar({ type }) {
   const [isShowModal, setIsShowModal] = useState(false)
@@ -22,7 +23,7 @@ return (
           <ArrowLeft className="ms-3" size={30} color="#003366" onClick={() => navigate(-1)}/>  
     }
   <ModalComponent isProfile={true} isShowModal={isShowModal} setIsShowModal={setIsShowModal}/> 
-  <div className='container-profile' onClick={toggleModal}>
+    <div className='container-profile' onClick={toggleModal}>
     <img
       src='https://picsum.photos/seed/picsum/200/200'
       alt='user img'
