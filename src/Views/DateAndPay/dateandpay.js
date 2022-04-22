@@ -99,7 +99,7 @@ const DateAndPay = () => {
                     <label >Paypal</label>
                 </div> */}
             </div>
-            <div className='mx-4 mt-4'>
+            <div className='mx-4 mt-4 pb-4'>
                 <PayPalButton
                     amount={Math.ceil(total/20)}
                     
@@ -116,7 +116,7 @@ const DateAndPay = () => {
                         }); */
                     }}
                 />
-                <Button color={'primary'} width={'large'} >PayPal</Button>
+                <Button color={'primary'} width={'large'} >Cancelar</Button>
             </div>
         </section>
 
