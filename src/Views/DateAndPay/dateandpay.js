@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Calendar, MapPin, ShoppingCart } from 'react-feather'
 import { useNavigate } from 'react-router-dom'
+import { useQueryParams } from '../../helpers/useQueryParams'
 import Button from '../../Components/Button/Button'
 import NavBar from '../../Components/NavBar/NavBar.js'
 import carFront from "../../Images/car-front.svg"
@@ -11,12 +12,14 @@ const DateAndPay = () => {
 
     const [serviceInfo, setServiceInfo] = useState()
     const token = localStorage.getItem('token')
+    const { serviceId } = useQueryParams()
     const config = { headers: { authorization: `${token}` } }
     const navigate = useNavigate()
 
+    console.log(serviceId)
+
     useEffect(() => {
-        const userId = localStorage.getItem('user')
-        axios.get(`https://washak-api.washak.xyz/services/byUser/${userId}`, config)
+            axios.get(`https://washak-api.washak.xyz/services/${serviceId}`, config)
             .then(res => {
                 console.log(res.data.allService)
                 setServiceInfo(res.data.allService)

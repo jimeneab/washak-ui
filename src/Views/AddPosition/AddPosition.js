@@ -29,7 +29,7 @@ const AddPosition = () => {
         }, config)
         .then(res => {
             console.log(res)
-            navigate(`/dateAndPay`)
+            navigate(`/dateAndPay?serviceId=${res.data?.cars?._id}`)
         })
         .catch(e => {
             console.log(e)
